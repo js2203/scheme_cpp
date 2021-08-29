@@ -1,0 +1,3 @@
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir

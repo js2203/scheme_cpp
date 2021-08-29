@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="scheme_cpp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scheme_cpp">
+				<Option output="C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/scheme_cpp.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 scheme_cpp"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scheme_cpp/fast">
+				<Option output="C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/scheme_cpp.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 scheme_cpp/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/main.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/parser.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/parser.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/repl.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/repl.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
