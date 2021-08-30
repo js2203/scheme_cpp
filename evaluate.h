@@ -8,7 +8,7 @@ namespace scm::trampoline {
 
 Object* evaluateInput(Environment& env, Object* obj);
 
-Continuation* evaluate();
+Continuation* trampolineEvaluateFirst();
 
 
 } // namespace scm

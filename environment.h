@@ -1,6 +1,8 @@
 #pragma once
-#include <map>
 #include "scheme_functions.h"
+#include "scheme_getter.h"
+#include "memory.h"
+#include <map>
 
 namespace scm{
 
@@ -20,7 +22,6 @@ class Environment {
 
 void defineKey(Environment& env, Object* key, Object* value);
 void setKey(Environment& env, Object* key, Object* value);
-void printEnv(Environment& env);
 Object* getVariable(Environment& env, Object* key);
 
 } // namespace scm

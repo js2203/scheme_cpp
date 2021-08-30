@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "evaluate.h"
+#include "environment.h"
 
 namespace scm::trampoline {
 
@@ -12,16 +13,15 @@ namespace scm::trampoline {
  */
 Object* evaluateInput(Environment& env, Object* expression) {
   pushArgs({&env, expression});
-  return trampoline((Continuation*)(evaluate));
+  return trampoline((Continuation *) (trampolineEvaluateFirst));
 }
 
 /**
  *
  * @return
  */
-static Continuation* evaluateArguments_repeat()
+static Continuation* evaluateArgumentsSecond()
 {
-  // get variables from stack
   auto* env = popArg<Environment*>();
   auto* operation = popArg<Object*>();
   auto* argumentCons = popArg<Object*>();
@@ -35,10 +35,12 @@ static Continuation* evaluateArguments_repeat()
   argumentCons = getCdr(argumentCons);
   if (argumentCons != SCM_NIL) {
     Object* nextArg{getCar(argumentCons)};
-    // arguments for evaluateArguments_repeat
+    // arguments for evaluateArgumentsSecond
     pushArgs({env, operation, argumentCons, ++nArgs});
     // call evaluation for next argument
-    return tCall((Continuation *) (evaluate), (Continuation *) (evaluateArguments_repeat), {env, nextArg});
+    return trampolineCall((Continuation *) (trampolineEvaluateFirst),
+                          (Continuation *) (evaluateArgumentsSecond),
+                          {env, nextArg});
   }
   else {
     pushArgs({env, operation, nArgs});
@@ -50,9 +52,8 @@ static Continuation* evaluateArguments_repeat()
  *
  * @return
  */
-static Continuation* evaluateArguments()
+static Continuation* evaluateArgumentsFirst()
 {
-  // get variables from stack
   auto* env{popArg<Environment*>()};
   auto* operation{popArg<Object*>()};
   auto* argumentCons{popArg<Object*>()};
@@ -63,21 +64,90 @@ static Continuation* evaluateArguments()
   if (argumentCons != SCM_NIL) {
     // push arguments for evaluateArgunents_repeat
     pushArgs({env, operation, argumentCons, ++nArgs});
-    // push and call evaluate on current argument
     Object* currentArgument{getCar(argumentCons)};
-    return tCall((Continuation *) (evaluate), (Continuation *) (evaluateArguments_repeat), {env, currentArgument});
+    return trampolineCall((Continuation *) (trampolineEvaluateFirst),
+                          (Continuation *) (evaluateArgumentsSecond),
+                          {env, currentArgument});
   }
   else {
     pushArgs({env, operation, nArgs});
     return popFunc();
   }
-};
+}
 
 /**
  *
  * @return
  */
-static Continuation* evaluate_Part1()
+static Continuation* evaluateBuiltinFunction()
+{
+  Environment* env{popArg<Environment*>()};
+  Object* function{popArg<Object*>()};
+  int nArgs{popArg<int>()};
+
+  pushArg(nArgs);
+  return getBuiltinFunc(function);
+}
+
+/**
+ *
+ * @return
+ */
+static Continuation* evaluateUserDefinedFunction()
+{
+  Environment* env{popArg<Environment*>()};
+  Object* function{popArg<Object*>()};
+  int nArgs{popArg<int>()};
+
+  // get arguments and list of expressions
+  Object* functionArguments{getUserFunctionArgList(function)};
+  Object* functionBody{getUserFunctionBodyList(function)};
+  Environment* funcEnv{new Environment(getUserFunctionParentEnv(function))};
+
+  if (nArgs > 0) {
+    ObjectVec evaluatedArguments{popArgs<Object*>(nArgs)};
+
+    // define all function arguments in the function environment
+    for(;;) {
+      if (functionArguments == SCM_NIL) {
+        break;
+      }
+
+      Object* argName{getCar(functionArguments)};
+      Object* argValue{evaluatedArguments[--nArgs]};
+      scm::defineKey(*funcEnv, argName, argValue);
+      functionArguments = getCdr(functionArguments);
+    }
+  }
+
+  // body may be a single expression or multiple!
+  if (hasTag(getCar(functionBody), TAG_CONS)) {
+    return tCall((Continuation *)(beginSyntax), {funcEnv, functionBody}); //TODO
+  }
+  else {
+    return trampolineCall((Continuation *)(trampolineEvaluateFirst), nullptr, {funcEnv, functionBody});
+  }
+}
+
+/**
+ *
+ * @return
+ */
+static Continuation* evaluateSyntax()
+{
+  Environment* env{popArg<Environment*>()};
+  Object* syntax{popArg<Object*>()};
+  Object* arguments{popArg<Object*>()};
+
+  pushArgs({env, arguments});
+  return getBuiltinSyntax(syntax);
+}
+
+/**
+ *
+ * @return
+ */
+static Continuation* trampolineEvaluateSecond()
 {
   // get arguments from stack
   Environment* env{popArg<Environment*>()};
@@ -89,13 +159,17 @@ static Continuation* evaluate_Part1()
 
   switch (evaluatedOperation->tag) {
     case TAG_FUNC_BUILTIN:
-      // evaluate arguments first then continue with function evaluation
-      return tCall((Continuation*)(evaluateArguments), (Continuation*)(evaluateBuiltinFunction), {env, evaluatedOperation, argumentCons}); //TODO
+      // trampolineEvaluateFirst arguments first then continue with function evaluation
+      return trampolineCall((Continuation *) (evaluateArgumentsFirst),
+                            (Continuation *) (evaluateBuiltinFunction),
+                            {env, evaluatedOperation, argumentCons});
     case TAG_SYNTAX:
-      return tCall((Continuation*)(evaluateSyntax), NULL, {env, evaluatedOperation, argumentCons});
+      return trampolineCall((Continuation *) (evaluateSyntax), NULL, {env, evaluatedOperation, argumentCons});
     case TAG_FUNC_USER:
-      // evaluate arguments first then continue with function evaluation
-      return tCall((Continuation*)(evaluateArguments), (Continuation*)(evaluateUserDefinedFunction), {env, evaluatedOperation, argumentCons});
+      // trampolineEvaluateFirst arguments first then continue with function evaluation
+      return trampolineCall((Continuation *) (evaluateArgumentsFirst),
+                            (Continuation *) (evaluateUserDefinedFunction),
+                            {env, evaluatedOperation, argumentCons});
     default:
       lastReturnValue = evaluatedOperation;
       return popFunc();
@@ -106,7 +180,7 @@ static Continuation* evaluate_Part1()
  *
  * @return
  */
-Continuation* evaluate() {
+Continuation* trampolineEvaluateFirst() {
   // get current environment and expression from their stacks
   Environment* env{popArg<Environment*>()};
   Object* obj{popArg<Object*>()};
@@ -131,7 +205,9 @@ Continuation* evaluate() {
     case scm::TAG_CONS: {
       Object* operation{getCar(obj)};
       pushArgs({env, obj});
-      return tCall((Continuation*)(evaluate), (Continuation*)(evaluate_Part1), {env, operation});
+      return trampolineCall((Continuation *) (trampolineEvaluateFirst),
+                            (Continuation *) (trampolineEvaluateSecond),
+                            {env, operation});
     }
     default:
       std::cout << ("evaluation not yet implemented for " + scm::toString(obj));

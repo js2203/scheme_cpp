@@ -1,5 +1,5 @@
-#include "scheme_functions.h"
 #include "scheme_getter.h"
+#include <iostream>
 
 namespace scm {
 
@@ -79,5 +79,50 @@ Object *getCdr(Object *obj) {
   auto cons{getCons(obj)};
   return cons.cdr;
 }
+
+/**
+ *
+ * @param obj
+ * @return
+ */
+FunctionTag getBuiltinFuncTag(Object* obj) {
+  return std::get<Func>(obj->value).tag;
+}
+
+/**
+ *
+ * @param obj
+ * @return
+ */
+Environment* getUserFunctionParentEnv(Object* obj) {
+  return std::get<UserFunc>(obj->value).env;
+}
+
+/**
+ *
+ * @param function
+ * @return
+ */
+Continuation* getBuiltinFunc(Object* function) { //TODO
+  switch (getBuiltinFuncTag(function)) {
+    case FUNC_ADD:
+      return trampoline::addition();
+    case FUNC_SUB:
+      return trampoline::subtraction();
+    case FUNC_MULT:
+      return trampoline::multiplication();
+    case FUNC_DIV:
+      return trampoline::division();
+    case FUNC_CONS:
+      return trampoline::equal();
+    case FUNC_CAR:
+      return trampoline::equalNumber();
+    case FUNC_CDR:
+      return trampoline::equalString();
+    default:
+      return nullptr;
+  }
+}
+
 
 } // namespace scm

@@ -1,5 +1,8 @@
 #pragma once
 #include "scheme_functions.h"
+#include "scheme_builtInFunc.h"
+#include "memory.h"
+#include "environment.h"
 
 namespace scm {
 
@@ -10,13 +13,16 @@ double getFloatValue(Object* obj);
 Cons getCons(Object* obj);
 Object* getCar(Object* obj);
 Object* getCdr(Object* obj);
+
 // FunctionTag getBuiltinFuncTag(Object* obj);
 std::string getBuiltinFuncName(Object* obj);
 int getBuiltinFuncNArgs(Object* obj);
-std::string getBuiltinFuncHelpText(Object* obj);
+Continuation* getBuiltinFunc(Object* function);
+
+Continuation* getBuiltinSyntax(Object* Syntax);
+
 Object* getUserFunctionBodyList(Object* obj);
 Object* getUserFunctionArgList(Object* obj);
-std::string getBuiltinFuncHelpText(Object* obj);
-// Environment* getUserFunctionParentEnv(Object* obj);
+Environment* getUserFunctionParentEnv(Object* obj);
 
 } // namespace scm

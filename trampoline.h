@@ -13,7 +13,7 @@ extern Object* lastReturnValue;
 extern std::stack<ArgumentTypeVariant> argumentStack;
 
 Object* trampoline(Continuation* startFunction);
-Continuation* tCall(Continuation* nextFunc, Continuation* nextPart = NULL, std::vector<ArgumentTypeVariant> arguments = {});
+Continuation* trampolineCall(Continuation* nextFunc, Continuation* nextPart = NULL, std::vector<ArgumentTypeVariant> arguments = {});
 
 // push functions
 void pushArg(ArgumentTypeVariant arg);

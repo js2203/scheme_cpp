@@ -1,8 +1,32 @@
 #include "scheme_functions.h"
-#include "scheme_getter.h"
 
 namespace scm {
 
+/**
+ *
+ * @param obj
+ * @param tag
+ * @return
+ */
+bool hasTag(Object* obj, TypeTag tag) {
+  return (scm::getTag(obj) == tag);
+}
+
+/**
+ *
+ * @param obj
+ * @return
+ */
+bool isFloat(Object* obj) {
+  return hasTag(obj, TAG_FLOAT);
+}
+
+/**
+ *
+ * @param cons
+ * @param str
+ * @return
+ */
 static std::string consToString(scm::Object* cons, std::string& str)
 {
   scm::Object *car, *cdr;

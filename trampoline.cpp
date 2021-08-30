@@ -32,7 +32,7 @@ Object* trampoline(Continuation* startFunction) {
  * @param arguments
  * @return
  */
-Continuation* tCall(Continuation* nextFunc, Continuation* nextPart, std::vector<ArgumentTypeVariant> arguments)
+Continuation* trampolineCall(Continuation* nextFunc, Continuation* nextPart, std::vector<ArgumentTypeVariant> arguments)
 {
   pushArgs(arguments);
   if (nextPart != NULL) {
@@ -77,7 +77,6 @@ Continuation* popFunc() {
     functionStack.pop();
     return nextFunc;
   }
-
 }
 
 } // namespace scm::trampoline

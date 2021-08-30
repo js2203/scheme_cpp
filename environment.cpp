@@ -1,6 +1,3 @@
-#include "scheme_functions.h"
-#include "scheme_getter.h"
-#include "memory.h"
 #include "environment.h"
 #include <map>
 #include <exception>

@@ -303,6 +303,33 @@ repl.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/repl.cpp.s
 .PHONY : repl.cpp.s
 
+scheme_builtInFunc.obj: scheme_builtInFunc.cpp.obj
+
+.PHONY : scheme_builtInFunc.obj
+
+# target to build an object file
+scheme_builtInFunc.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj
+.PHONY : scheme_builtInFunc.cpp.obj
+
+scheme_builtInFunc.i: scheme_builtInFunc.cpp.i
+
+.PHONY : scheme_builtInFunc.i
+
+# target to preprocess a source file
+scheme_builtInFunc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.i
+.PHONY : scheme_builtInFunc.cpp.i
+
+scheme_builtInFunc.s: scheme_builtInFunc.cpp.s
+
+.PHONY : scheme_builtInFunc.s
+
+# target to generate assembly for a file
+scheme_builtInFunc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.s
+.PHONY : scheme_builtInFunc.cpp.s
+
 scheme_functions.obj: scheme_functions.cpp.obj
 
 .PHONY : scheme_functions.obj
@@ -411,6 +438,9 @@ help:
 	@echo ... repl.obj
 	@echo ... repl.i
 	@echo ... repl.s
+	@echo ... scheme_builtInFunc.obj
+	@echo ... scheme_builtInFunc.i
+	@echo ... scheme_builtInFunc.s
 	@echo ... scheme_functions.obj
 	@echo ... scheme_functions.i
 	@echo ... scheme_functions.s
