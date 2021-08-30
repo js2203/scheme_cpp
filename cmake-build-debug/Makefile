@@ -384,6 +384,33 @@ scheme_getter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.s
 .PHONY : scheme_getter.cpp.s
 
+scheme_syntax.obj: scheme_syntax.cpp.obj
+
+.PHONY : scheme_syntax.obj
+
+# target to build an object file
+scheme_syntax.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj
+.PHONY : scheme_syntax.cpp.obj
+
+scheme_syntax.i: scheme_syntax.cpp.i
+
+.PHONY : scheme_syntax.i
+
+# target to preprocess a source file
+scheme_syntax.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.i
+.PHONY : scheme_syntax.cpp.i
+
+scheme_syntax.s: scheme_syntax.cpp.s
+
+.PHONY : scheme_syntax.s
+
+# target to generate assembly for a file
+scheme_syntax.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.s
+.PHONY : scheme_syntax.cpp.s
+
 trampoline.obj: trampoline.cpp.obj
 
 .PHONY : trampoline.obj
@@ -447,6 +474,9 @@ help:
 	@echo ... scheme_getter.obj
 	@echo ... scheme_getter.i
 	@echo ... scheme_getter.s
+	@echo ... scheme_syntax.obj
+	@echo ... scheme_syntax.i
+	@echo ... scheme_syntax.s
 	@echo ... trampoline.obj
 	@echo ... trampoline.i
 	@echo ... trampoline.s

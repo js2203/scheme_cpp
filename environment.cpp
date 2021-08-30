@@ -1,6 +1,7 @@
-#include "environment.h"
 #include <map>
 #include <exception>
+#include "environment.h"
+#include "scheme_getter.h"
 
 namespace scm {
 
@@ -10,7 +11,7 @@ namespace scm {
  * @param key
  * @param value
  */
-void defineKey(Environment& env, Object* key, Object* value){
+void defineKey(Environment& env, Object* key, Object* value) {
   if (hasTag(key, TAG_SYMBOL)) {
     env.bindings[getStringValue(key)] = value;
   }
@@ -22,8 +23,7 @@ void defineKey(Environment& env, Object* key, Object* value){
  * @param key
  * @param value
  */
-void setKey(Environment& env, Object* key, Object* value)
-{
+void setKey(Environment& env, Object* key, Object* value) {
   Environment* currentEnvPtr = &env;
   // define variable in every env until no parent env can be found
   while (currentEnvPtr != NULL) {
@@ -38,8 +38,7 @@ void setKey(Environment& env, Object* key, Object* value)
  * @param key
  * @return
  */
-Object* getVariable(Environment& env, Object* key)
-{
+Object* getVariable(Environment& env, Object* key) {
   Environment* currentEnvPtr = &env;
   if (hasTag(key, TAG_SYMBOL)) {
     while (currentEnvPtr != NULL) {
@@ -58,8 +57,7 @@ Object* getVariable(Environment& env, Object* key)
  *
  * @param env
  */
-Environment::Environment(const Environment& env)
-{
+Environment::Environment(const Environment& env) {
   parentEnv = env.parentEnv;
   bindings = env.bindings;
 }

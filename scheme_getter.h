@@ -1,12 +1,13 @@
 #pragma once
 #include "scheme_functions.h"
 #include "scheme_builtInFunc.h"
+#include "scheme_syntax.h"
 #include "memory.h"
 #include "environment.h"
 
 namespace scm {
 
-TypeTag getTag(Object* obj);
+ObjectTag getTag(Object* obj);
 std::string getStringValue(Object* obj);
 int getIntValue(Object* obj);
 double getFloatValue(Object* obj);

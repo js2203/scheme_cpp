@@ -4,15 +4,35 @@
 CMakeFiles/scheme_cpp.dir/environment.cpp.obj
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.cpp
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
+CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.cpp
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/main.cpp
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/parser.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/repl.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
 CMakeFiles/scheme_cpp.dir/memory.cpp.obj
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.cpp
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
@@ -23,16 +43,64 @@ CMakeFiles/scheme_cpp.dir/parser.cpp.obj
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/parser.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/parser.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/repl.cpp
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/repl.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
+CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.cpp
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
 CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.cpp
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
 CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.cpp
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
+CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.cpp
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
+CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.cpp
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h

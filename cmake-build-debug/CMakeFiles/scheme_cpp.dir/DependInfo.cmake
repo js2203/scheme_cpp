@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj"
   "C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj"
   "C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj"
+  "C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj"
   "C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

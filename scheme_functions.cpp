@@ -1,4 +1,5 @@
 #include "scheme_functions.h"
+#include "scheme_getter.h"
 
 namespace scm {
 
@@ -8,8 +9,8 @@ namespace scm {
  * @param tag
  * @return
  */
-bool hasTag(Object* obj, TypeTag tag) {
-  return (scm::getTag(obj) == tag);
+bool hasTag(Object* obj, ObjectTag tag) {
+  return (getTag(obj) == tag);
 }
 
 /**
@@ -19,6 +20,35 @@ bool hasTag(Object* obj, TypeTag tag) {
  */
 bool isFloat(Object* obj) {
   return hasTag(obj, TAG_FLOAT);
+}
+
+/**
+ *
+ * @param obj
+ * @return
+ */
+bool isString(Object* obj) {
+  return hasTag(obj, TAG_STRING);
+}
+
+/**
+ *
+ * @param obj
+ * @return
+ */
+bool isNumber(Object* obj) {
+  return (hasTag(obj, TAG_INT) || hasTag(obj, TAG_FLOAT));
+}
+
+/**
+ *
+ * @param obj
+ * @param validTypes
+ * @return
+ */
+bool isSameType(Object* obj, std::vector<ObjectTag> validTypes) {
+  auto lambda = [obj](ObjectTag tag) { return hasTag(obj, tag); };
+  return std::any_of(validTypes.begin(), validTypes.end(), lambda);
 }
 
 /**
@@ -42,11 +72,6 @@ static std::string consToString(scm::Object* cons, std::string& str)
   else {
     return str + ". " + toString(cdr) + ')';
   }
-}
-
-bool hasTag(Object* obj, TypeTag tag)
-{
-  return (getTag(obj) == tag);
 }
 
 /**
@@ -87,7 +112,7 @@ std::string toString(Object* obj) {
  * @param tag
  * @return
  */
-std::string tagToString(TypeTag tag) {
+std::string tagToString(ObjectTag tag) {
   switch (tag) {
     case TAG_INT:
       return "integer";
@@ -100,7 +125,7 @@ std::string tagToString(TypeTag tag) {
     case TAG_CONS:
       return "cons";
     case TAG_NIL:
-      return "cons";
+      return "null";
     case TAG_TRUE:
       return "true";
     case TAG_FALSE:
@@ -115,7 +140,7 @@ std::string tagToString(TypeTag tag) {
       return "void";
     default:
       return "unrecognized tag";
-  };
+  }
 }
 
 }

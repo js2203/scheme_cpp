@@ -1,6 +1,4 @@
 #pragma once
-#include "environment.h"
-#include "scheme_getter.h"
 #include <variant>
 #include <string>
 #include <vector>
@@ -9,8 +7,9 @@
 namespace scm {
 
 struct Object;
+class Environment;
 
-enum TypeTag {
+enum ObjectTag {
   TAG_INT = 1,
   TAG_FLOAT,
   TAG_STRING,
@@ -33,11 +32,10 @@ enum FunctionTag {
   SYNTAX_IF,
   SYNTAX_SET,
   SYNTAX_BEGIN,
-  SYNTAX_HELP,
 
   FUNC_ADD,
   FUNC_SUB,
-  FUNC_MULT,
+  FUNC_MUL,
   FUNC_DIV,
   FUNC_CONS,
   FUNC_CAR,
@@ -50,7 +48,7 @@ enum FunctionTag {
   FUNC_LIST,
   FUNC_DISPLAY,
   FUNC_FUNCTION_BODY,
-  FUNC_FUNCTION_ARGLIST,
+  FUNC_FUNCTION_ARGS,
   FUNC_IS_STRING,
   FUNC_IS_NUMBER,
   FUNC_IS_CONS,
@@ -77,7 +75,7 @@ struct UserFunc {
 };
 
 struct Object {
-  TypeTag tag;
+  ObjectTag tag;
   std::variant<int, double, std::string, Cons, Func, UserFunc> value;
 };
 
@@ -87,9 +85,13 @@ using ObjectVec = std::vector<Object*>;
 using ObjectStack = std::stack<Object*>;
 using FunctionStack = std::stack<Continuation*>;
 
-bool hasTag(Object* obj, TypeTag tag);
+bool hasTag(Object* obj, ObjectTag tag);
 bool isFloat(Object* obj);
-std::string tagToString(TypeTag tag);
+bool isString(Object* obj);
+bool isNumber(Object* obj);
+bool isSameType(Object* obj, std::vector<ObjectTag> validTypes);
+
+std::string tagToString(ObjectTag tag);
 std::string toString(scm::Object* obj);
 static std::string consToString(scm::Object* cons, std::string& str);
 

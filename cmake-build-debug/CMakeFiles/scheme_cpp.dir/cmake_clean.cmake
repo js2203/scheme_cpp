@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj"
   "CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj"
   "CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj"
+  "CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj"
   "CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj"
   "libscheme_cpp.dll.a"
   "scheme_cpp.exe"

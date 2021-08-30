@@ -47,9 +47,12 @@ Continuation* subtraction() {
                                                  : static_cast<double>(getIntValue(minuendObj));
 
   if (subtrahends.size() == 0) {
-    if (hasTag(minuendObj, TAG_FLOAT))
-      t_RETURN(newFloat(-getFloatValue(minuendObj)));
-    t_RETURN(newInteger(-getIntValue(minuendObj)));
+    if (hasTag(minuendObj, TAG_FLOAT)) {
+      lastReturnValue = newFloat(-getFloatValue(minuendObj));
+      return popFunc();
+    }
+    lastReturnValue = newInteger(-getIntValue(minuendObj));
+    return popFunc();
   }
   else if (hasTag(minuendObj, TAG_FLOAT) ||
       std::any_of(subtrahends.begin(), subtrahends.end(), isFloat)) {
@@ -60,12 +63,14 @@ Continuation* subtraction() {
       return a + getFloatValue(b);
     };
     doubleSubtrahend = std::accumulate(subtrahends.begin(), subtrahends.end(), double(0.0), lambda);
-    t_RETURN(newFloat(minuend - doubleSubtrahend));
+    lastReturnValue = newFloat(minuend - doubleSubtrahend);
+    return popFunc();
   }
   else {
     auto lambda = [](int a, Object* b) { return a + getIntValue(b); };
     intSubtrahend = std::accumulate(subtrahends.begin(), subtrahends.end(), int(0), lambda);
-    t_RETURN(newInteger(static_cast<int>(minuend) - intSubtrahend));
+    lastReturnValue = newInteger(static_cast<int>(minuend) - intSubtrahend);
+    return popFunc();
   }
 }
 
@@ -237,7 +242,11 @@ Continuation* lesserThan() {
   }
 }
 
-Continuation* consFunction() {
+/**
+ *
+ * @return
+ */
+Continuation* buildCons() {
   int nArgs{popArg<int>()};
   Object* cdr{popArg<Object*>()};
   Object* car{popArg<Object*>()};
@@ -245,6 +254,156 @@ Continuation* consFunction() {
   return popFunc();
 }
 
-//TODO
+/**
+ *
+ * @return
+ */
+Continuation* getCarFunc() {
+  int nArgs{popArg<int>()};
+  Object* cons{popArg<Object*>()};
+  if (hasTag(cons, TAG_CONS)) {
+    lastReturnValue = getCar(cons);
+    return popFunc();
+  }
+  return nullptr;
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* getCdrFunc() {
+  int nArgs{popArg<int>()};
+  Object* cons{popArg<Object*>()};
+  if (hasTag(cons, TAG_CONS)) {
+    lastReturnValue = getCdr(cons);
+    return popFunc();
+  }
+  return nullptr;
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* buildList() {
+  int nArgs{popArg<int>()};
+  Object* rest = SCM_NIL;
+  while (nArgs--) {
+    Object* currentArgument{popArg<Object*>()};
+    rest = newCons(currentArgument, rest);
+  }
+  lastReturnValue = rest;
+  return popFunc();
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* display() {
+  int nArgs{popArg<int>()};
+  ObjectVec arguments{popArgs<Object*>(nArgs)};
+  for (auto argument{arguments.rbegin()}; argument != arguments.rend(); argument++) {
+    std::cout << toString(*argument) << " ";
+  }
+  std::cout << '\n';
+  lastReturnValue = SCM_VOID;
+  return popFunc();
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* returnFuncBody() {
+  int nArgs{popArg<int>()};
+  Object* obj{popArg<Object*>()};
+  if (hasTag(obj, TAG_FUNC_USER)) {
+    lastReturnValue = getUserFunctionBodyList(obj);
+    return popFunc();
+  }
+  return nullptr;
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* returnFuncArguments() {
+  int nArgs{popArg<int>()};
+  Object* obj{popArg<Object*>()};
+  if (hasTag(obj, TAG_FUNC_USER)) {
+    lastReturnValue = getUserFunctionArgList(obj);
+    return popFunc();
+  }
+  return nullptr;
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* isStringFunc() {
+  int nArgs{popArg<int>()};
+  Object* obj{popArg<Object*>()};
+  lastReturnValue = (isString(obj)) ? SCM_TRUE : SCM_FALSE;
+  return popFunc();
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* isNumberFunc() {
+  int nArgs{popArg<int>()};
+  Object* obj{popArg<Object*>()};
+  lastReturnValue = (isNumber(obj)) ? SCM_TRUE : SCM_FALSE;
+  return popFunc();
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* isConsFunc() {
+  int nArgs{popArg<int>()};
+  Object* obj{popArg<Object*>()};
+  lastReturnValue = (hasTag(obj, TAG_CONS)) ? SCM_TRUE : SCM_FALSE;
+  return popFunc();
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* isBuiltinFunc() {
+  int nArgs{popArg<int>()};
+  Object* obj{popArg<Object*>()};
+  lastReturnValue = (hasTag(obj, TAG_FUNC_BUILTIN)) ? SCM_TRUE : SCM_FALSE;
+  return popFunc();
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* isUserFunc() {
+  int nArgs{popArg<int>()};
+  Object* obj{popArg<Object*>()};
+  lastReturnValue = (hasTag(obj, TAG_FUNC_USER)) ? SCM_TRUE : SCM_FALSE;
+  return popFunc();
+}
+
+/**
+ *
+ * @return
+ */
+Continuation* isBoolFunc() {
+  int nArgs{popArg<int>()};
+  Object* obj{popArg<Object*>()};
+  lastReturnValue = (scm::isSameType(obj, {TAG_TRUE, TAG_FALSE})) ? SCM_TRUE : SCM_FALSE;
+  return popFunc();
+}
 
 } // namespace scm::trampoline

@@ -1,8 +1,8 @@
+#include "scheme_functions.h"
 #include <iostream>
 #include <fstream>
 #include "memory.h"
 #include "repl.h"
-#include "scheme_functions.h"
 #include "environment.h"
 
 int main(int argc, char** argv) {

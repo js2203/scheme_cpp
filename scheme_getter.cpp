@@ -1,3 +1,4 @@
+#include "scheme_functions.h"
 #include "scheme_getter.h"
 #include <iostream>
 
@@ -8,7 +9,7 @@ namespace scm {
  * @param obj
  * @return
  */
-TypeTag getTag(Object *obj) {
+ObjectTag getTag(Object *obj) {
   return obj->tag;
 }
 
@@ -18,10 +19,9 @@ TypeTag getTag(Object *obj) {
  * @return
  */
 std::string getStringValue(Object *obj) {
-  if (!hasTag(obj, TAG_STRING) && !hasTag(obj, TAG_SYMBOL)) {
-    // schemeThrow("object has no string value that could be gotten");
+  if (hasTag(obj, TAG_STRING) && hasTag(obj, TAG_SYMBOL)) {
+    return std::get<std::string>(obj->value);
   }
-  return std::get<std::string>(obj->value);
 }
 
 /**
@@ -30,10 +30,9 @@ std::string getStringValue(Object *obj) {
  * @return
  */
 int getIntValue(Object *obj) {
-  if (!hasTag(obj, TAG_INT)) {
-    // schemeThrow("object has no integer value that could be gotten");
+  if (hasTag(obj, TAG_INT)) {
+    return std::get<int>(obj->value);
   }
-  return std::get<int>(obj->value);
 }
 
 /**
@@ -42,10 +41,9 @@ int getIntValue(Object *obj) {
  * @return
  */
 double getFloatValue(Object *obj) {
-  if (!hasTag(obj, TAG_FLOAT)) {
-    // schemeThrow("object has no float value that could be gotten");
+  if (hasTag(obj, TAG_FLOAT)) {
+    return std::get<double>(obj->value);
   }
-  return std::get<double>(obj->value);
 }
 
 /**
@@ -54,10 +52,9 @@ double getFloatValue(Object *obj) {
  * @return
  */
 Cons getCons(Object *obj) {
-  if (!hasTag(obj, TAG_CONS)) {
-    // schemeThrow("tried to get consvalue from non-cons object: " + toString(obj));
+  if (hasTag(obj, TAG_CONS)) {
+    return std::get<Cons>(obj->value);
   }
-  return std::get<Cons>(obj->value);
 }
 
 /**
@@ -100,16 +97,36 @@ Environment* getUserFunctionParentEnv(Object* obj) {
 
 /**
  *
+ * @param obj
+ * @return
+ */
+Object* getUserFunctionBodyList(Object* obj)
+{
+  return std::get<UserFunc>(obj->value).bodyList;
+}
+
+/**
+ *
+ * @param obj
+ * @return
+ */
+Object* getUserFunctionArgList(Object* obj)
+{
+  return std::get<UserFunc>(obj->value).argList;
+}
+
+/**
+ *
  * @param function
  * @return
  */
-Continuation* getBuiltinFunc(Object* function) { //TODO
+Continuation* getBuiltinFunc(Object* function) {
   switch (getBuiltinFuncTag(function)) {
     case FUNC_ADD:
       return trampoline::addition();
     case FUNC_SUB:
       return trampoline::subtraction();
-    case FUNC_MULT:
+    case FUNC_MUL:
       return trampoline::multiplication();
     case FUNC_DIV:
       return trampoline::division();
@@ -119,10 +136,63 @@ Continuation* getBuiltinFunc(Object* function) { //TODO
       return trampoline::equalNumber();
     case FUNC_CDR:
       return trampoline::equalString();
+    case FUNC_EQ:
+      return trampoline::greaterThan();
+    case FUNC_EQUAL_STRING:
+      return trampoline::lesserThan();
+    case FUNC_EQUAL_NUMBER:
+      return trampoline::buildCons();
+    case FUNC_GT:
+      return trampoline::getCarFunc();
+    case FUNC_LT:
+      return trampoline::getCdrFunc();
+    case FUNC_DISPLAY:
+      return trampoline::buildList();
+    case FUNC_LIST:
+      return trampoline::display();
+    case FUNC_FUNCTION_BODY:
+      return trampoline::returnFuncBody();
+    case FUNC_FUNCTION_ARGS:
+      return trampoline::returnFuncArguments();
+    case FUNC_IS_STRING:
+      return trampoline::isStringFunc();
+    case FUNC_IS_NUMBER:
+      return trampoline::isNumberFunc();
+    case FUNC_IS_CONS:
+      return trampoline::isConsFunc();
+    case FUNC_IS_FUNC:
+      return trampoline::isBuiltinFunc();
+    case FUNC_IS_USERFUNC:
+      return trampoline::isUserFunc();
+    case FUNC_IS_BOOL:
+      return trampoline::isBoolFunc();
     default:
       return nullptr;
   }
 }
 
+/**
+ *
+ * @param syntax
+ * @return
+ */
+Continuation* getBuiltinSyntax(Object* syntax) {
+  switch (getBuiltinFuncTag(syntax)) {
+    case SYNTAX_DEFINE:
+      return trampoline::syntaxDefine();
+    case SYNTAX_SET:
+      return trampoline::syntaxSet();
+    case SYNTAX_QUOTE:
+      return trampoline::syntaxQuote();
+    case SYNTAX_IF:
+      return trampoline::syntaxIf();
+    case SYNTAX_BEGIN:
+      return trampoline::syntaxBegin();
+    case SYNTAX_LAMBDA:
+      return trampoline::syntaxLambda();
+    default:
+      return nullptr;
+  }
+}
 
 } // namespace scm

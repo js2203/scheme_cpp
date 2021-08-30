@@ -1,5 +1,4 @@
 #include "memory.h"
-#include "scheme_functions.h"
 
 namespace scm {
 
@@ -20,6 +19,12 @@ void initSingletons() {
   SCM_FALSE->tag = TAG_FALSE;
 }
 
+Object* newUserFunction(Object* argList, Object* bodyList, Environment& homeEnv) {
+  Object* obj{new Object};
+  obj->tag = TAG_FUNC_USER;
+  obj->value = UserFunc{argList, bodyList, &homeEnv};
+  return obj;
+}
 
 /**
  *

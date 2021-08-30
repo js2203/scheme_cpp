@@ -1,8 +1,6 @@
 #pragma once
-#include "scheme_functions.h"
-#include "scheme_getter.h"
-#include "memory.h"
 #include <map>
+#include "scheme_functions.h"
 
 namespace scm{
 

@@ -131,6 +131,12 @@
 		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h">
 			<Option target="scheme_cpp"/>
 		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
 		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.cpp">
 			<Option target="scheme_cpp"/>
 		</Unit>

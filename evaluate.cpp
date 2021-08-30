@@ -1,7 +1,6 @@
-#pragma once
 #include <iostream>
 #include "evaluate.h"
-#include "environment.h"
+#include "scheme_syntax.h"
 
 namespace scm::trampoline {
 
@@ -13,7 +12,7 @@ namespace scm::trampoline {
  */
 Object* evaluateInput(Environment& env, Object* expression) {
   pushArgs({&env, expression});
-  return trampoline((Continuation *) (trampolineEvaluateFirst));
+  return trampoline((Continuation*)(trampolineEvaluateFirst));
 }
 
 /**
@@ -38,8 +37,8 @@ static Continuation* evaluateArgumentsSecond()
     // arguments for evaluateArgumentsSecond
     pushArgs({env, operation, argumentCons, ++nArgs});
     // call evaluation for next argument
-    return trampolineCall((Continuation *) (trampolineEvaluateFirst),
-                          (Continuation *) (evaluateArgumentsSecond),
+    return trampolineCall((Continuation*) (trampolineEvaluateFirst),
+                          (Continuation*) (evaluateArgumentsSecond),
                           {env, nextArg});
   }
   else {
@@ -122,7 +121,7 @@ static Continuation* evaluateUserDefinedFunction()
 
   // body may be a single expression or multiple!
   if (hasTag(getCar(functionBody), TAG_CONS)) {
-    return tCall((Continuation *)(beginSyntax), {funcEnv, functionBody}); //TODO
+    return trampolineCall((Continuation *)(syntaxBegin), nullptr, {funcEnv, functionBody});
   }
   else {
     return trampolineCall((Continuation *)(trampolineEvaluateFirst), nullptr, {funcEnv, functionBody});
