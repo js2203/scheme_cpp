@@ -1,7 +1,7 @@
 #pragma once
 #include "evaluate.h"
 #include "memory.h"
-#include "scheme_functions.h"
+#include "scheme_basics.h"
 #include "scheme_getter.h"
 #include "trampoline.h"
 #include <algorithm>

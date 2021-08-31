@@ -101,18 +101,18 @@ CMakeFiles/scheme_cpp.dir/memory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/scheme_cpp.dir/memory.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\janni\OneDrive\Desktop\scheme_cpp\memory.cpp -o CMakeFiles\scheme_cpp.dir\memory.cpp.s
 
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: CMakeFiles/scheme_cpp.dir/flags.make
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../scheme_functions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\janni\OneDrive\Desktop\scheme_cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\scheme_cpp.dir\scheme_functions.cpp.obj -c C:\Users\janni\OneDrive\Desktop\scheme_cpp\scheme_functions.cpp
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: CMakeFiles/scheme_cpp.dir/flags.make
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../scheme_basics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\janni\OneDrive\Desktop\scheme_cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\scheme_cpp.dir\scheme_basics.cpp.obj -c C:\Users\janni\OneDrive\Desktop\scheme_cpp\scheme_basics.cpp
 
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\janni\OneDrive\Desktop\scheme_cpp\scheme_functions.cpp > CMakeFiles\scheme_cpp.dir\scheme_functions.cpp.i
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\janni\OneDrive\Desktop\scheme_cpp\scheme_basics.cpp > CMakeFiles\scheme_cpp.dir\scheme_basics.cpp.i
 
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\janni\OneDrive\Desktop\scheme_cpp\scheme_functions.cpp -o CMakeFiles\scheme_cpp.dir\scheme_functions.cpp.s
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\janni\OneDrive\Desktop\scheme_cpp\scheme_basics.cpp -o CMakeFiles\scheme_cpp.dir\scheme_basics.cpp.s
 
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: CMakeFiles/scheme_cpp.dir/flags.make
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../repl.cpp
@@ -222,7 +222,7 @@ CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.s: cmake_force
 scheme_cpp_OBJECTS = \
 "CMakeFiles/scheme_cpp.dir/main.cpp.obj" \
 "CMakeFiles/scheme_cpp.dir/memory.cpp.obj" \
-"CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj" \
+"CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj" \
 "CMakeFiles/scheme_cpp.dir/repl.cpp.obj" \
 "CMakeFiles/scheme_cpp.dir/parser.cpp.obj" \
 "CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj" \
@@ -237,7 +237,7 @@ scheme_cpp_EXTERNAL_OBJECTS =
 
 scheme_cpp.exe: CMakeFiles/scheme_cpp.dir/main.cpp.obj
 scheme_cpp.exe: CMakeFiles/scheme_cpp.dir/memory.cpp.obj
-scheme_cpp.exe: CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj
+scheme_cpp.exe: CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj
 scheme_cpp.exe: CMakeFiles/scheme_cpp.dir/repl.cpp.obj
 scheme_cpp.exe: CMakeFiles/scheme_cpp.dir/parser.cpp.obj
 scheme_cpp.exe: CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj

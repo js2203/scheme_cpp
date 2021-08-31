@@ -6,11 +6,21 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.cpp
+map
+-
+exception
+-
+environment.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+scheme_getter.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
+
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
 map
 -
-scheme_functions.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+scheme_basics.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
 
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.cpp
 iostream
@@ -21,8 +31,8 @@ scheme_syntax.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
 
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
-scheme_functions.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+scheme_basics.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
 scheme_getter.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
 environment.h
@@ -31,16 +41,32 @@ trampoline.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
 
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
-scheme_functions.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+scheme_basics.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
+
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
+variant
+-
+string
+-
+vector
+-
+stack
+-
+iostream
+-
+exception
+-
+sstream
+-
 
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
 evaluate.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
 memory.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
-scheme_functions.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+scheme_basics.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
 scheme_getter.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
 trampoline.h
@@ -56,19 +82,9 @@ iostream
 numeric
 -
 
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
-variant
--
-string
--
-vector
--
-stack
--
-
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
-scheme_functions.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+scheme_basics.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
 scheme_builtInFunc.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
 scheme_syntax.h
@@ -83,8 +99,8 @@ evaluate.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
 memory.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
-scheme_functions.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+scheme_basics.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
 scheme_getter.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
 trampoline.h
@@ -105,8 +121,8 @@ stack
 -
 variant
 -
-scheme_functions.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h
+scheme_basics.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
 scheme_getter.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
 environment.h

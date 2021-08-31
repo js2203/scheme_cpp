@@ -1,5 +1,3 @@
-#include <map>
-#include <exception>
 #include "environment.h"
 #include "scheme_getter.h"
 
@@ -26,10 +24,10 @@ void defineKey(Environment& env, Object* key, Object* value) {
 void setKey(Environment& env, Object* key, Object* value) {
   Environment* currentEnvPtr = &env;
   // define variable in every env until no parent env can be found
-  while (currentEnvPtr != NULL) {
+  while (currentEnvPtr != nullptr) {
     defineKey(*currentEnvPtr, key, value);
     currentEnvPtr = (*currentEnvPtr).parentEnv;
-  };
+  }
 }
 
 /**
@@ -41,16 +39,19 @@ void setKey(Environment& env, Object* key, Object* value) {
 Object* getVariable(Environment& env, Object* key) {
   Environment* currentEnvPtr = &env;
   if (hasTag(key, TAG_SYMBOL)) {
-    while (currentEnvPtr != NULL) {
-      std::map<std::string, Object*>::iterator found = currentEnvPtr->bindings.find(getStringValue(key));
-      if (found != currentEnvPtr->bindings.end()) {
-        return currentEnvPtr->bindings.at(getStringValue(key));
-      } else {
-        currentEnvPtr = currentEnvPtr->parentEnv;
+    while (currentEnvPtr != nullptr) {
+        if (currentEnvPtr->bindings.empty()){
+          throw schemeException("no variable was declared in the environment", __FILE__, __LINE__);
+        }
+        auto found = currentEnvPtr->bindings.find(getStringValue(key));
+        if (found != currentEnvPtr->bindings.end()) {
+          return currentEnvPtr->bindings.at(getStringValue(key));
+        } else {
+          currentEnvPtr = currentEnvPtr->parentEnv;
+        }
       }
-    }
   }
-  return NULL;
+  return nullptr;
 }
 
 /**

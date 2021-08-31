@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "scheme_functions.h"
+#include "scheme_basics.h"
 #include "memory.h"
 
 namespace scm {

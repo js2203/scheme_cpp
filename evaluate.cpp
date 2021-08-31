@@ -163,7 +163,7 @@ static Continuation* trampolineEvaluateSecond()
                             (Continuation *) (evaluateBuiltinFunction),
                             {env, evaluatedOperation, argumentCons});
     case TAG_SYNTAX:
-      return trampolineCall((Continuation *) (evaluateSyntax), NULL, {env, evaluatedOperation, argumentCons});
+      return trampolineCall((Continuation *) (evaluateSyntax), nullptr, {env, evaluatedOperation, argumentCons});
     case TAG_FUNC_USER:
       // trampolineEvaluateFirst arguments first then continue with function evaluation
       return trampolineCall((Continuation *) (evaluateArgumentsFirst),
@@ -198,6 +198,9 @@ Continuation* trampolineEvaluateFirst() {
       return popFunc();
     case scm::TAG_SYMBOL: {
       evaluatedObj = getVariable(*env, obj);
+      if (!evaluatedObj) {
+        throw schemeException("no symbol was found", __FILE__, __LINE__);
+      }
       lastReturnValue = evaluatedObj;
       return popFunc();
     }

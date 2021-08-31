@@ -5,8 +5,8 @@ CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../environment.cpp
 CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../environment.h
 CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../evaluate.h
 CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../memory.h
+CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../scheme_basics.h
 CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../scheme_builtInFunc.h
-CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../scheme_functions.h
 CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../scheme_getter.h
 CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../scheme_syntax.h
 CMakeFiles/scheme_cpp.dir/environment.cpp.obj: ../trampoline.h
@@ -15,8 +15,8 @@ CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../environment.h
 CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../evaluate.cpp
 CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../evaluate.h
 CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../memory.h
+CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../scheme_basics.h
 CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../scheme_builtInFunc.h
-CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../scheme_functions.h
 CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../scheme_getter.h
 CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../scheme_syntax.h
 CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../trampoline.h
@@ -27,20 +27,20 @@ CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../memory.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../parser.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../repl.h
+CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../scheme_basics.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../scheme_builtInFunc.h
-CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../scheme_functions.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../scheme_getter.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../scheme_syntax.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../trampoline.h
 
 CMakeFiles/scheme_cpp.dir/memory.cpp.obj: ../memory.cpp
 CMakeFiles/scheme_cpp.dir/memory.cpp.obj: ../memory.h
-CMakeFiles/scheme_cpp.dir/memory.cpp.obj: ../scheme_functions.h
+CMakeFiles/scheme_cpp.dir/memory.cpp.obj: ../scheme_basics.h
 
 CMakeFiles/scheme_cpp.dir/parser.cpp.obj: ../memory.h
 CMakeFiles/scheme_cpp.dir/parser.cpp.obj: ../parser.cpp
 CMakeFiles/scheme_cpp.dir/parser.cpp.obj: ../parser.h
-CMakeFiles/scheme_cpp.dir/parser.cpp.obj: ../scheme_functions.h
+CMakeFiles/scheme_cpp.dir/parser.cpp.obj: ../scheme_basics.h
 
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../environment.h
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../evaluate.h
@@ -48,37 +48,37 @@ CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../memory.h
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../parser.h
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../repl.cpp
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../repl.h
+CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../scheme_basics.h
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../scheme_builtInFunc.h
-CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../scheme_functions.h
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../scheme_getter.h
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../scheme_syntax.h
 CMakeFiles/scheme_cpp.dir/repl.cpp.obj: ../trampoline.h
 
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../environment.h
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../evaluate.h
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../memory.h
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../scheme_basics.cpp
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../scheme_basics.h
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../scheme_builtInFunc.h
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../scheme_getter.h
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../scheme_syntax.h
+CMakeFiles/scheme_cpp.dir/scheme_basics.cpp.obj: ../trampoline.h
+
 CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../environment.h
 CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../evaluate.h
 CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../memory.h
+CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../scheme_basics.h
 CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../scheme_builtInFunc.cpp
 CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../scheme_builtInFunc.h
-CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../scheme_functions.h
 CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../scheme_getter.h
 CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../scheme_syntax.h
 CMakeFiles/scheme_cpp.dir/scheme_builtInFunc.cpp.obj: ../trampoline.h
 
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../environment.h
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../evaluate.h
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../memory.h
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../scheme_builtInFunc.h
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../scheme_functions.cpp
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../scheme_functions.h
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../scheme_getter.h
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../scheme_syntax.h
-CMakeFiles/scheme_cpp.dir/scheme_functions.cpp.obj: ../trampoline.h
-
 CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../environment.h
 CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../evaluate.h
 CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../memory.h
+CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../scheme_basics.h
 CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../scheme_builtInFunc.h
-CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../scheme_functions.h
 CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../scheme_getter.cpp
 CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../scheme_getter.h
 CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../scheme_syntax.h
@@ -87,8 +87,8 @@ CMakeFiles/scheme_cpp.dir/scheme_getter.cpp.obj: ../trampoline.h
 CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../environment.h
 CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../evaluate.h
 CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../memory.h
+CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../scheme_basics.h
 CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../scheme_builtInFunc.h
-CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../scheme_functions.h
 CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../scheme_getter.h
 CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../scheme_syntax.cpp
 CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../scheme_syntax.h
@@ -97,8 +97,8 @@ CMakeFiles/scheme_cpp.dir/scheme_syntax.cpp.obj: ../trampoline.h
 CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj: ../environment.h
 CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj: ../evaluate.h
 CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj: ../memory.h
+CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj: ../scheme_basics.h
 CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj: ../scheme_builtInFunc.h
-CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj: ../scheme_functions.h
 CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj: ../scheme_getter.h
 CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj: ../scheme_syntax.h
 CMakeFiles/scheme_cpp.dir/trampoline.cpp.obj: ../trampoline.cpp

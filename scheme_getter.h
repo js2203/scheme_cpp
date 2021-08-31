@@ -1,5 +1,5 @@
 #pragma once
-#include "scheme_functions.h"
+#include "scheme_basics.h"
 #include "scheme_builtInFunc.h"
 #include "scheme_syntax.h"
 #include "memory.h"
@@ -15,9 +15,7 @@ Cons getCons(Object* obj);
 Object* getCar(Object* obj);
 Object* getCdr(Object* obj);
 
-// FunctionTag getBuiltinFuncTag(Object* obj);
 std::string getBuiltinFuncName(Object* obj);
-int getBuiltinFuncNArgs(Object* obj);
 Continuation* getBuiltinFunc(Object* function);
 
 Continuation* getBuiltinSyntax(Object* Syntax);

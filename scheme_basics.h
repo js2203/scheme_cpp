@@ -3,6 +3,9 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include <iostream>
+#include <exception>
+#include <sstream>
 
 namespace scm {
 
@@ -77,6 +80,27 @@ struct UserFunc {
 struct Object {
   ObjectTag tag;
   std::variant<int, double, std::string, Cons, Func, UserFunc> value;
+};
+
+/**
+ *
+ */
+class schemeException : public std::runtime_error {
+  const char* file;
+  const char* errorMsg;
+  int line;
+
+ public:
+  schemeException(const char* msg,
+              const char* file_,
+              int line_) : std::runtime_error(msg), file (file_), line (line_) {
+    errorMsg = msg;
+  }
+
+  [[nodiscard]] const char* get_file() const { return file; }
+  [[nodiscard]] int get_line() const { return line; }
+  [[nodiscard]] const char * what () const noexcept override { return errorMsg; }
+
 };
 
 using VoidPtrFunc = void*();

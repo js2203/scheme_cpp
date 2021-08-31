@@ -13,19 +13,21 @@ void repl(std::istream* streamPointer, Environment& env) {
   for (;;) {
     try {
       Object* argument = readInput(streamPointer);
-      std::cout << tagToString(argument->tag); // TODO REMOVE
+      std::cout << tagToString(argument->tag) << "\n";
       // if an argument can't be read, exit the loop
       if (argument == SCM_EOF) {
         return;
       }
-      Object* value = trampoline::evaluateInput(env, argument); // TODO
+      Object* value = trampoline::evaluateInput(env, argument);
       if (value != scm::SCM_VOID) {
         std::cout << "--> " << scm::toString(value) << std::endl;
       }
     }
-    // catch standard c++ error
-    catch (std::exception& e) {
-      std::cerr << "C++ ERROR: " << e.what() << '\n';
+    catch (scm::schemeException& ex) {
+      std::cerr << ex.what() << '\n';
+    }
+    catch (std::exception& ex) {
+      std::cerr << ex.what() << '\n';
     }
   }
 }

@@ -113,16 +113,16 @@
 		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/repl.h">
 			<Option target="scheme_cpp"/>
 		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
 		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.cpp">
 			<Option target="scheme_cpp"/>
 		</Unit>
 		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h">
-			<Option target="scheme_cpp"/>
-		</Unit>
-		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.cpp">
-			<Option target="scheme_cpp"/>
-		</Unit>
-		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_functions.h">
 			<Option target="scheme_cpp"/>
 		</Unit>
 		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.cpp">
