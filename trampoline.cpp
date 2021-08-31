@@ -1,7 +1,5 @@
 #include "trampoline.h"
 #include <stack>
-#include <utility>
-#include <variant>
 
 namespace scm::trampoline {
 
@@ -19,7 +17,7 @@ Object* lastReturnValue = SCM_NIL;
 Object* trampoline(Continuation* startFunction) {
   Continuation* nextFunction{startFunction};
   pushFunc(nullptr);
-  while (nextFunction != NULL) {
+  while (nextFunction != nullptr) {
     nextFunction = (Continuation*)(*nextFunction)();
   }
   return lastReturnValue;

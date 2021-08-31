@@ -43,8 +43,8 @@ Continuation* subtraction() {
   int intSubtrahend{};
   double doubleSubtrahend;
   auto* minuendObj = popArg<Object*>();
-  double minuend = hasTag(minuendObj, TAG_FLOAT) ? getFloatValue(minuendObj)
-                                                 : static_cast<double>(getIntValue(minuendObj));
+
+  double minuend = hasTag(minuendObj, TAG_FLOAT) ? getFloatValue(minuendObj) : static_cast<double>(getIntValue(minuendObj));
 
   if (subtrahends.empty()) {
     if (hasTag(minuendObj, TAG_FLOAT)) {
@@ -130,8 +130,7 @@ Continuation* division_second() {
  *
  * @return
  */
-Continuation* division()
-{
+Continuation* division() {
   int nArgs{popArg<int>()};
   return trampolineCall((Continuation*)(multiplication), (Continuation*)(division_second), {nArgs - 1});
 }

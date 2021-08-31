@@ -14,7 +14,7 @@ extern Object* lastReturnValue;
 extern std::stack<ArgumentTypeVariant> argumentStack;
 
 Object* trampoline(Continuation* startFunction);
-Continuation* trampolineCall(Continuation* nextFunc, Continuation* nextPart = NULL, std::vector<ArgumentTypeVariant> arguments = {});
+Continuation* trampolineCall(Continuation* nextFunc, Continuation* nextPart = nullptr, std::vector<ArgumentTypeVariant> arguments = {});
 
 void pushArg(ArgumentTypeVariant arg);
 void pushArgs(std::vector<ArgumentTypeVariant> arguments);
@@ -28,8 +28,7 @@ Continuation* popFunc();
  * @return
  */
 template <typename T>
-T popArg()
-{
+T popArg() {
   T arg{std::get<T>(argumentStack.top())};
   argumentStack.pop();
   return arg;
@@ -42,8 +41,7 @@ T popArg()
  * @return
  */
 template <typename T>
-std::vector<T> popArgs(int n)
-{
+std::vector<T> popArgs(int n) {
   std::vector<T> values;
   for (int i{0}; i < n; i++) {
     values.push_back(popArg<T>());

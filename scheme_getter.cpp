@@ -19,9 +19,7 @@ ObjectTag getTag(Object *obj) {
  * @return
  */
 std::string getStringValue(Object *obj) {
-  if (hasTag(obj, TAG_STRING) || hasTag(obj, TAG_SYMBOL)) {
-    return std::get<std::string>(obj->value);
-  }
+  return std::get<std::string>(obj->value);
 }
 
 /**
@@ -30,9 +28,7 @@ std::string getStringValue(Object *obj) {
  * @return
  */
 int getIntValue(Object *obj) {
-  if (hasTag(obj, TAG_INT)) {
-    return std::get<int>(obj->value);
-  }
+  return std::get<int>(obj->value);
 }
 
 /**
@@ -41,9 +37,7 @@ int getIntValue(Object *obj) {
  * @return
  */
 double getFloatValue(Object *obj) {
-  if (hasTag(obj, TAG_FLOAT)) {
-    return std::get<double>(obj->value);
-  }
+  return std::get<double>(obj->value);
 }
 
 /**
@@ -52,9 +46,7 @@ double getFloatValue(Object *obj) {
  * @return
  */
 Cons getCons(Object *obj) {
-  if (hasTag(obj, TAG_CONS)) {
-    return std::get<Cons>(obj->value);
-  }
+  return std::get<Cons>(obj->value);
 }
 
 /**
