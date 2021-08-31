@@ -18,7 +18,7 @@ Object* lastReturnValue = SCM_NIL;
  */
 Object* trampoline(Continuation* startFunction) {
   Continuation* nextFunction{startFunction};
-  pushFunc(NULL);
+  pushFunc(nullptr);
   while (nextFunction != NULL) {
     nextFunction = (Continuation*)(*nextFunction)();
   }
@@ -34,8 +34,8 @@ Object* trampoline(Continuation* startFunction) {
  */
 Continuation* trampolineCall(Continuation* nextFunc, Continuation* nextPart, std::vector<ArgumentTypeVariant> arguments)
 {
-  pushArgs(arguments);
-  if (nextPart != NULL) {
+  pushArgs(std::move(arguments));
+  if (nextPart != nullptr) {
     pushFunc(nextPart);
   }
   return nextFunc;
@@ -54,7 +54,7 @@ void pushArg(ArgumentTypeVariant arg) {
  * @param arguments
  */
 void pushArgs(std::vector<ArgumentTypeVariant> arguments) {
-  for (auto i = arguments.rbegin(); i != arguments.rend(); i++) { //TODO TEST THIS
+  for (auto i = arguments.rbegin(); i != arguments.rend(); i++) {
     pushArg(*i);
   }
 }
@@ -77,6 +77,7 @@ Continuation* popFunc() {
     functionStack.pop();
     return nextFunc;
   }
+  return nullptr;
 }
 
 } // namespace scm::trampoline

@@ -21,8 +21,15 @@ CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../scheme_getter.h
 CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../scheme_syntax.h
 CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj: ../trampoline.h
 
+CMakeFiles/scheme_cpp.dir/init.cpp.obj: ../environment.h
+CMakeFiles/scheme_cpp.dir/init.cpp.obj: ../init.cpp
+CMakeFiles/scheme_cpp.dir/init.cpp.obj: ../init.h
+CMakeFiles/scheme_cpp.dir/init.cpp.obj: ../memory.h
+CMakeFiles/scheme_cpp.dir/init.cpp.obj: ../scheme_basics.h
+
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../environment.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../evaluate.h
+CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../init.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../memory.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj: ../parser.h

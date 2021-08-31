@@ -16,12 +16,10 @@ extern std::stack<ArgumentTypeVariant> argumentStack;
 Object* trampoline(Continuation* startFunction);
 Continuation* trampolineCall(Continuation* nextFunc, Continuation* nextPart = NULL, std::vector<ArgumentTypeVariant> arguments = {});
 
-// push functions
 void pushArg(ArgumentTypeVariant arg);
 void pushArgs(std::vector<ArgumentTypeVariant> arguments);
 void pushFunc(Continuation* nextFunc);
 
-// pop functions
 Continuation* popFunc();
 
 /**

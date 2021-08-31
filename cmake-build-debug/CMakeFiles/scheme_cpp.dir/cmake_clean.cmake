@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/scheme_cpp.dir/environment.cpp.obj"
   "CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj"
+  "CMakeFiles/scheme_cpp.dir/init.cpp.obj"
   "CMakeFiles/scheme_cpp.dir/main.cpp.obj"
   "CMakeFiles/scheme_cpp.dir/memory.cpp.obj"
   "CMakeFiles/scheme_cpp.dir/parser.cpp.obj"

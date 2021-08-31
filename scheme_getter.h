@@ -15,11 +15,8 @@ Cons getCons(Object* obj);
 Object* getCar(Object* obj);
 Object* getCdr(Object* obj);
 
-std::string getBuiltinFuncName(Object* obj);
 Continuation* getBuiltinFunc(Object* function);
-
 Continuation* getBuiltinSyntax(Object* Syntax);
-
 Object* getUserFunctionBodyList(Object* obj);
 Object* getUserFunctionArgList(Object* obj);
 Environment* getUserFunctionParentEnv(Object* obj);

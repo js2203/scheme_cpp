@@ -3,12 +3,12 @@
 #include <fstream>
 #include "memory.h"
 #include "repl.h"
-#include "environment.h"
+#include "init.h"
 
 int main(int argc, char** argv) {
-  scm::initSingletons();
+  scm::initConstSchemeObjects();
   scm::Environment baseEnv{};
-  // scm::setupEnvironment(topLevelEnv); TODO
+  scm::initBaseEnvironment(baseEnv);
 
   // define input stream from file
   std::ifstream inputStream;

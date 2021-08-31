@@ -104,7 +104,7 @@ std::string toString(Object* obj) {
     case TAG_VOID:
       return "";
     default:
-      return "{{TO STRING NOT YET IMPLEMENTED FOR TAG " + std::to_string(obj->tag) + "}}";
+      return "{{can't print: " + std::to_string(obj->tag) + "}}";
   }
 }
 /**

@@ -11,4 +11,4 @@ Object* evaluateInput(Environment& env, Object* obj);
 Continuation* trampolineEvaluateFirst();
 
 
-} // namespace scm
+} // namespace scm::trampoline

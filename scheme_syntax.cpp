@@ -9,7 +9,7 @@ namespace scm::trampoline {
 static Continuation* syntaxDefine_second() {
   Environment* env{popArg<Environment*>()};
   Object* symbol{popArg<Object*>()};
-  // get evaluated value of definition
+
   Object* value{lastReturnValue};
 
   scm::defineKey(*env, symbol, value);
@@ -26,26 +26,16 @@ Continuation* syntaxDefine() {
   Object* argumentCons{popArg<Object*>()};
 
   Object *symbol, *value;
-
-  // get key of definition
   symbol = getCar(argumentCons);
 
-  // shorthand lambda definition!
-  // if symbol is a cons, treat it like a lambda declaration
-  // (define (funcname var1 var2 ...) (body))
   if (hasTag(symbol, TAG_CONS)) {
-    // push arguments required for next part
     pushArgs({env, getCar(symbol)});
-    // call lambda then continue with next part
     return trampolineCall((Continuation*) (syntaxLambda), (Continuation*)(syntaxDefine_second), {env, newCons(getCdr(symbol), getCdr(argumentCons))});
   }
-    // in the case of a single symbol, we just define the variable
   else {
     value = getCdr(argumentCons);
-    // push arguments required for next part
     pushArgs({env, symbol});
 
-    // call evaluate then continue with next part
     return trampolineCall((Continuation*)(trampolineEvaluateFirst), (Continuation*)(syntaxDefine_second), {env, getCar(value)});
   }
 }
@@ -78,10 +68,8 @@ Continuation* syntaxSet() {
   argumentCons = getCdr(argumentCons);
   expression = getCar(argumentCons);
 
-  // push arguments required for next part
   pushArgs({env, symbol});
 
-  // call evaluate then continue with next part
   return trampolineCall((Continuation*)(trampolineEvaluateFirst), (Continuation*)(syntaxSet_second), {env, expression});
 }
 
@@ -90,7 +78,7 @@ Continuation* syntaxSet() {
  * @return
  */
 Continuation* syntaxQuote() {
-  Environment* env{popArg<Environment*>()};
+  popArg<Environment *>();
   Object* argumentCons{popArg<Object*>()};
   Object* quoted = (hasTag(argumentCons, TAG_CONS)) ? getCar(argumentCons) : argumentCons;
   lastReturnValue = quoted;
@@ -108,7 +96,7 @@ static Continuation* syntaxIf_second() {
 
   Object* evaluatedCondition{lastReturnValue};
 
-  Object* conditionAsBool;
+  Object *conditionAsBool = nullptr;
 
   switch (evaluatedCondition->tag) {
     case scm::TAG_INT: {
@@ -121,7 +109,7 @@ static Continuation* syntaxIf_second() {
     }
     case scm::TAG_STRING: {
       conditionAsBool =
-          (scm::getStringValue(evaluatedCondition) == std::string{}) ? SCM_TRUE : SCM_FALSE;
+          (scm::getStringValue(evaluatedCondition).empty()) ? SCM_TRUE : SCM_FALSE;
       break;
     }
     case scm::TAG_TRUE:
@@ -153,16 +141,13 @@ Continuation* syntaxIf() {
   Object* argumentCons{popArg<Object*>()};
   Object *condition, *trueExpression, *falseExpression;
 
-  // get all required Objects
   condition = getCar(argumentCons);
   argumentCons = getCdr(argumentCons);
   trueExpression = getCar(argumentCons);
   argumentCons = getCdr(argumentCons);
   falseExpression = getCar(argumentCons);
-  // push arguments required for next part
   pushArgs({env, trueExpression, falseExpression});
 
-  // call evaluate then continue with next part
   return trampolineCall((Continuation*)(trampolineEvaluateFirst), (Continuation*)(syntaxIf_second), {env, condition});
 }
 
@@ -178,13 +163,10 @@ static Continuation* syntaxBegin_second()
   Object* currentExpression = getCar(argumentCons);
   argumentCons = getCdr(argumentCons);
 
-  // check if we're finished
   if (argumentCons == SCM_NIL) {
-    // evaluate last expression in begin block and return
     return trampolineCall((Continuation*)(trampolineEvaluateFirst), nullptr, {env, currentExpression});
   }
   else {
-    // push arguments for next part
     pushArgs({env, argumentCons});
     return trampolineCall((Continuation*)(trampolineEvaluateFirst), (Continuation*)(syntaxBegin_second), {env, currentExpression});
   }
@@ -197,8 +179,6 @@ static Continuation* syntaxBegin_second()
 Continuation* syntaxBegin() {
   Environment* env{popArg<Environment*>()};
   Object* argumentCons{popArg<Object*>()};
-  // because of this check we need to split the function
-  // SCM_NIL is required as check for the end of cons objects
   if (argumentCons == SCM_NIL) {
     lastReturnValue = SCM_VOID;
     return popFunc();
@@ -214,11 +194,9 @@ Continuation* syntaxBegin() {
  */
 Continuation* syntaxLambda()
 {
-  // get arguments from stack
   Environment* env{popArg<Environment*>()};
   Object* argumentCons{popArg<Object*>()};
 
-  // try to get argument list and body list from arguments
   Object* argList = getCar(argumentCons);
   Object* bodyList = getCdr(argumentCons);
 

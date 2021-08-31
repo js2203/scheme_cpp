@@ -92,6 +92,12 @@
 		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h">
 			<Option target="scheme_cpp"/>
 		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/init.cpp">
+			<Option target="scheme_cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/init.h">
+			<Option target="scheme_cpp"/>
+		</Unit>
 		<Unit filename="C:/Users/janni/OneDrive/Desktop/scheme_cpp/main.cpp">
 			<Option target="scheme_cpp"/>
 		</Unit>

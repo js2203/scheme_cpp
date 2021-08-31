@@ -11,7 +11,7 @@ Object* SCM_FALSE{new Object};
 /**
  * initializes all constant Objects
  */
-void initSingletons() {
+void initConstSchemeObjects() {
   SCM_NIL->tag = TAG_NIL;
   SCM_VOID->tag = TAG_VOID;
   SCM_EOF->tag = TAG_EOF;
@@ -19,10 +19,47 @@ void initSingletons() {
   SCM_FALSE->tag = TAG_FALSE;
 }
 
+/**
+ *
+ * @param argList
+ * @param bodyList
+ * @param homeEnv
+ * @return
+ */
 Object* newUserFunction(Object* argList, Object* bodyList, Environment& homeEnv) {
   Object* obj{new Object};
   obj->tag = TAG_FUNC_USER;
   obj->value = UserFunc{argList, bodyList, &homeEnv};
+  return obj;
+}
+
+/**
+ *
+ * @param name
+ * @param numArgs
+ * @param funcTag
+ * @return
+ */
+Object* newBuiltinFunction(std::string name, int numArgs, FunctionTag funcTag)
+{
+  Object* obj{new Object};
+  obj->tag = TAG_FUNC_BUILTIN;
+  obj->value = Func{"primitive:" + name, numArgs, funcTag};
+  return obj;
+};
+
+/**
+ *
+ * @param name
+ * @param numArgs
+ * @param funcTag
+ * @return
+ */
+Object* newSyntax(std::string name, int numArgs, FunctionTag funcTag)
+{
+  Object* obj{new Object()};
+  obj->tag = TAG_SYNTAX;
+  obj->value = Func{"syntax:" + name, numArgs, funcTag};
   return obj;
 }
 

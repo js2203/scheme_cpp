@@ -21,9 +21,16 @@ CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/trampoline.h
+CMakeFiles/scheme_cpp.dir/init.cpp.obj
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/init.cpp
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/init.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
 CMakeFiles/scheme_cpp.dir/main.cpp.obj
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
+ C:/Users/janni/OneDrive/Desktop/scheme_cpp/init.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/main.cpp
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.h
  C:/Users/janni/OneDrive/Desktop/scheme_cpp/parser.h

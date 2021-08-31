@@ -35,7 +35,6 @@ enum FunctionTag {
   SYNTAX_IF,
   SYNTAX_SET,
   SYNTAX_BEGIN,
-
   FUNC_ADD,
   FUNC_SUB,
   FUNC_MUL,
@@ -97,17 +96,15 @@ class schemeException : public std::runtime_error {
     errorMsg = msg;
   }
 
-  [[nodiscard]] const char* get_file() const { return file; }
-  [[nodiscard]] int get_line() const { return line; }
-  [[nodiscard]] const char * what () const noexcept override { return errorMsg; }
+  const char* get_file() const { return file; }
+  int get_line() const { return line; }
+  const char * what () const noexcept override { return errorMsg; }
 
 };
 
 using VoidPtrFunc = void*();
 using Continuation = VoidPtrFunc*();
 using ObjectVec = std::vector<Object*>;
-using ObjectStack = std::stack<Object*>;
-using FunctionStack = std::stack<Continuation*>;
 
 bool hasTag(Object* obj, ObjectTag tag);
 bool isFloat(Object* obj);

@@ -137,7 +137,7 @@ Object* readInput(std::istream *streamPointer) {
     // split the line in every single argument
     std::vector<std::string> currentLineElements = splitCurrentLine(currentLine);
 
-    // save the arguments in a vector
+    // save the arguments in an array
     arguments.insert(arguments.end(),
                      std::make_move_iterator(currentLineElements.begin()),
                      std::make_move_iterator(currentLineElements.end()));

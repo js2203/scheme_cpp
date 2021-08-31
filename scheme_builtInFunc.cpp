@@ -42,11 +42,11 @@ Continuation* subtraction() {
   auto subtrahends = popArgs<Object*>(nArgs - 1);
   int intSubtrahend{};
   double doubleSubtrahend;
-  Object* minuendObj = popArg<Object*>();
+  auto* minuendObj = popArg<Object*>();
   double minuend = hasTag(minuendObj, TAG_FLOAT) ? getFloatValue(minuendObj)
                                                  : static_cast<double>(getIntValue(minuendObj));
 
-  if (subtrahends.size() == 0) {
+  if (subtrahends.empty()) {
     if (hasTag(minuendObj, TAG_FLOAT)) {
       lastReturnValue = newFloat(-getFloatValue(minuendObj));
       return popFunc();
@@ -93,7 +93,6 @@ Continuation* multiplication() {
   }
   else {
     auto lambda = [](int a, Object* b) {
-      int result = getIntValue(b) * a;
       return a * getIntValue(b);
     };
     lastReturnValue = newInteger(std::accumulate(arguments.begin(), arguments.end(), int{1}, lambda));
@@ -142,7 +141,7 @@ Continuation* division()
  * @return
  */
 Continuation* equal() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* b{popArg<Object*>()};
   Object* a{popArg<Object*>()};
   lastReturnValue = (a == b) ? SCM_TRUE : SCM_FALSE;
@@ -154,7 +153,7 @@ Continuation* equal() {
  * @return
  */
 Continuation* equalString() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* b{popArg<Object*>()};
   Object* a{popArg<Object*>()};
   lastReturnValue = (scm::getStringValue(a) == scm::getStringValue(b)) ? SCM_TRUE : SCM_FALSE;
@@ -166,7 +165,7 @@ Continuation* equalString() {
  * @return
  */
 Continuation* equalNumber() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* b{popArg<Object*>()};
   Object* a{popArg<Object*>()};
 
@@ -193,7 +192,7 @@ Continuation* equalNumber() {
  * @return
  */
 Continuation* greaterThan() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* b{popArg<Object*>()};
   Object* a{popArg<Object*>()};
 
@@ -220,7 +219,7 @@ Continuation* greaterThan() {
  * @return
  */
 Continuation* lesserThan() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* b{popArg<Object*>()};
   Object* a{popArg<Object*>()};
 
@@ -247,7 +246,7 @@ Continuation* lesserThan() {
  * @return
  */
 Continuation* buildCons() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* cdr{popArg<Object*>()};
   Object* car{popArg<Object*>()};
   lastReturnValue = newCons(car, cdr);
@@ -259,7 +258,7 @@ Continuation* buildCons() {
  * @return
  */
 Continuation* getCarFunc() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* cons{popArg<Object*>()};
   if (hasTag(cons, TAG_CONS)) {
     lastReturnValue = getCar(cons);
@@ -273,7 +272,7 @@ Continuation* getCarFunc() {
  * @return
  */
 Continuation* getCdrFunc() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* cons{popArg<Object*>()};
   if (hasTag(cons, TAG_CONS)) {
     lastReturnValue = getCdr(cons);
@@ -317,7 +316,7 @@ Continuation* display() {
  * @return
  */
 Continuation* returnFuncBody() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* obj{popArg<Object*>()};
   if (hasTag(obj, TAG_FUNC_USER)) {
     lastReturnValue = getUserFunctionBodyList(obj);
@@ -331,7 +330,7 @@ Continuation* returnFuncBody() {
  * @return
  */
 Continuation* returnFuncArguments() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* obj{popArg<Object*>()};
   if (hasTag(obj, TAG_FUNC_USER)) {
     lastReturnValue = getUserFunctionArgList(obj);
@@ -345,7 +344,7 @@ Continuation* returnFuncArguments() {
  * @return
  */
 Continuation* isStringFunc() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* obj{popArg<Object*>()};
   lastReturnValue = (isString(obj)) ? SCM_TRUE : SCM_FALSE;
   return popFunc();
@@ -356,7 +355,7 @@ Continuation* isStringFunc() {
  * @return
  */
 Continuation* isNumberFunc() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* obj{popArg<Object*>()};
   lastReturnValue = (isNumber(obj)) ? SCM_TRUE : SCM_FALSE;
   return popFunc();
@@ -367,7 +366,7 @@ Continuation* isNumberFunc() {
  * @return
  */
 Continuation* isConsFunc() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* obj{popArg<Object*>()};
   lastReturnValue = (hasTag(obj, TAG_CONS)) ? SCM_TRUE : SCM_FALSE;
   return popFunc();
@@ -378,7 +377,7 @@ Continuation* isConsFunc() {
  * @return
  */
 Continuation* isBuiltinFunc() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* obj{popArg<Object*>()};
   lastReturnValue = (hasTag(obj, TAG_FUNC_BUILTIN)) ? SCM_TRUE : SCM_FALSE;
   return popFunc();
@@ -389,7 +388,7 @@ Continuation* isBuiltinFunc() {
  * @return
  */
 Continuation* isUserFunc() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* obj{popArg<Object*>()};
   lastReturnValue = (hasTag(obj, TAG_FUNC_USER)) ? SCM_TRUE : SCM_FALSE;
   return popFunc();
@@ -400,7 +399,7 @@ Continuation* isUserFunc() {
  * @return
  */
 Continuation* isBoolFunc() {
-  int nArgs{popArg<int>()};
+  popArg<int>();
   Object* obj{popArg<Object*>()};
   lastReturnValue = (scm::isSameType(obj, {TAG_TRUE, TAG_FALSE})) ? SCM_TRUE : SCM_FALSE;
   return popFunc();

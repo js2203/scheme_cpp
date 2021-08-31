@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/environment.cpp.obj"
   "C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/evaluate.cpp.obj"
+  "C:/Users/janni/OneDrive/Desktop/scheme_cpp/init.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/init.cpp.obj"
   "C:/Users/janni/OneDrive/Desktop/scheme_cpp/main.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/main.cpp.obj"
   "C:/Users/janni/OneDrive/Desktop/scheme_cpp/memory.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/memory.cpp.obj"
   "C:/Users/janni/OneDrive/Desktop/scheme_cpp/parser.cpp" "C:/Users/janni/OneDrive/Desktop/scheme_cpp/cmake-build-debug/CMakeFiles/scheme_cpp.dir/parser.cpp.obj"

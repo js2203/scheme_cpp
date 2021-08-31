@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.cpp
-map
--
-exception
--
-environment.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
-scheme_getter.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_getter.h
-
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/environment.h
 map
 -
@@ -27,8 +17,6 @@ iostream
 -
 evaluate.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
-scheme_syntax.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_syntax.h
 
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
 scheme_basics.h

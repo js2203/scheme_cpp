@@ -21,9 +21,18 @@ void defineKey(Environment& env, Object* key, Object* value) {
  * @param key
  * @param value
  */
+void defineKeyString(Environment &env, const std::string& key, Object *value) {
+  env.bindings[key] = value;
+}
+
+/**
+ *
+ * @param env
+ * @param key
+ * @param value
+ */
 void setKey(Environment& env, Object* key, Object* value) {
   Environment* currentEnvPtr = &env;
-  // define variable in every env until no parent env can be found
   while (currentEnvPtr != nullptr) {
     defineKey(*currentEnvPtr, key, value);
     currentEnvPtr = (*currentEnvPtr).parentEnv;
@@ -43,8 +52,9 @@ Object* getVariable(Environment& env, Object* key) {
         if (currentEnvPtr->bindings.empty()){
           throw schemeException("no variable was declared in the environment", __FILE__, __LINE__);
         }
-        auto found = currentEnvPtr->bindings.find(getStringValue(key));
-        if (found != currentEnvPtr->bindings.end()) {
+        std::string keyStr{getStringValue(key)};
+        auto envKey = currentEnvPtr->bindings.find(keyStr);
+        if (envKey != currentEnvPtr->bindings.end()) {
           return currentEnvPtr->bindings.at(getStringValue(key));
         } else {
           currentEnvPtr = currentEnvPtr->parentEnv;
@@ -62,5 +72,6 @@ Environment::Environment(const Environment& env) {
   parentEnv = env.parentEnv;
   bindings = env.bindings;
 }
+
 
 } // namespace scm

@@ -19,7 +19,7 @@ ObjectTag getTag(Object *obj) {
  * @return
  */
 std::string getStringValue(Object *obj) {
-  if (hasTag(obj, TAG_STRING) && hasTag(obj, TAG_SYMBOL)) {
+  if (hasTag(obj, TAG_STRING) || hasTag(obj, TAG_SYMBOL)) {
     return std::get<std::string>(obj->value);
   }
 }
@@ -131,25 +131,25 @@ Continuation* getBuiltinFunc(Object* function) {
     case FUNC_DIV:
       return trampoline::division();
     case FUNC_CONS:
-      return trampoline::equal();
-    case FUNC_CAR:
-      return trampoline::equalNumber();
-    case FUNC_CDR:
-      return trampoline::equalString();
-    case FUNC_EQ:
-      return trampoline::greaterThan();
-    case FUNC_EQUAL_STRING:
-      return trampoline::lesserThan();
-    case FUNC_EQUAL_NUMBER:
       return trampoline::buildCons();
-    case FUNC_GT:
+    case FUNC_CAR:
       return trampoline::getCarFunc();
-    case FUNC_LT:
+    case FUNC_CDR:
       return trampoline::getCdrFunc();
+    case FUNC_EQ:
+      return trampoline::equal();
+    case FUNC_EQUAL_STRING:
+      return trampoline::equalString();
+    case FUNC_EQUAL_NUMBER:
+      return trampoline::equalNumber();
+    case FUNC_GT:
+      return trampoline::greaterThan();
+    case FUNC_LT:
+      return trampoline::lesserThan();
     case FUNC_DISPLAY:
-      return trampoline::buildList();
-    case FUNC_LIST:
       return trampoline::display();
+    case FUNC_LIST:
+      return trampoline::buildList();
     case FUNC_FUNCTION_BODY:
       return trampoline::returnFuncBody();
     case FUNC_FUNCTION_ARGS:

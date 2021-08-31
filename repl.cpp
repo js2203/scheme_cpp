@@ -23,9 +23,11 @@ void repl(std::istream* streamPointer, Environment& env) {
         std::cout << "--> " << scm::toString(value) << std::endl;
       }
     }
+    // catch the error if something went wrong in the scheme evaluation
     catch (scm::schemeException& ex) {
       std::cerr << ex.what() << '\n';
     }
+      // catch the error if something went wrong in cpp in general
     catch (std::exception& ex) {
       std::cerr << ex.what() << '\n';
     }

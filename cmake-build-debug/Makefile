@@ -195,6 +195,33 @@ evaluate.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/evaluate.cpp.s
 .PHONY : evaluate.cpp.s
 
+init.obj: init.cpp.obj
+
+.PHONY : init.obj
+
+# target to build an object file
+init.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/init.cpp.obj
+.PHONY : init.cpp.obj
+
+init.i: init.cpp.i
+
+.PHONY : init.i
+
+# target to preprocess a source file
+init.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/init.cpp.i
+.PHONY : init.cpp.i
+
+init.s: init.cpp.s
+
+.PHONY : init.s
+
+# target to generate assembly for a file
+init.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\scheme_cpp.dir\build.make CMakeFiles/scheme_cpp.dir/init.cpp.s
+.PHONY : init.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -453,6 +480,9 @@ help:
 	@echo ... evaluate.obj
 	@echo ... evaluate.i
 	@echo ... evaluate.s
+	@echo ... init.obj
+	@echo ... init.i
+	@echo ... init.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
