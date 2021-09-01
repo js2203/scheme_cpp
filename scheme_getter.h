@@ -19,6 +19,7 @@ Continuation* getBuiltinFunc(Object* function);
 Continuation* getBuiltinSyntax(Object* Syntax);
 Object* getUserFunctionBodyList(Object* obj);
 Object* getUserFunctionArgList(Object* obj);
+int getBuiltinFuncNArgs(Object* obj);
 Environment* getUserFunctionParentEnv(Object* obj);
 
 } // namespace scm

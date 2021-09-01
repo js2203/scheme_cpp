@@ -6,105 +6,114 @@ namespace scm {
 
 /**
  *
- * @param obj
+ * @param scmObj
  * @return
  */
-ObjectTag getTag(Object *obj) {
-  return obj->tag;
+ObjectTag getTag(Object *scmObj) {
+  return scmObj->tag;
 }
 
 /**
  *
- * @param obj
+ * @param stringObj
  * @return
  */
-std::string getStringValue(Object *obj) {
-  return std::get<std::string>(obj->value);
+std::string getStringValue(Object *stringObj) {
+  return std::get<std::string>(stringObj->value);
 }
 
 /**
  *
- * @param obj
+ * @param intObj
  * @return
  */
-int getIntValue(Object *obj) {
-  return std::get<int>(obj->value);
+int getIntValue(Object *intObj) {
+  return std::get<int>(intObj->value);
 }
 
 /**
  *
- * @param obj
+ * @param floatObj
  * @return
  */
-double getFloatValue(Object *obj) {
-  return std::get<double>(obj->value);
+double getFloatValue(Object *floatObj) {
+  return std::get<double>(floatObj->value);
 }
 
 /**
  *
- * @param obj
+ * @param consObj
  * @return
  */
-Cons getCons(Object *obj) {
-  return std::get<Cons>(obj->value);
+Cons getCons(Object *consObj) {
+  return std::get<Cons>(consObj->value);
 }
 
 /**
  *
- * @param obj
+ * @param carObj
  * @return
  */
-Object *getCar(Object *obj) {
-  auto cons{getCons(obj)};
+Object *getCar(Object *carObj) {
+  auto cons{getCons(carObj)};
   return cons.car;
 }
 
 /**
  *
- * @param obj
+ * @param cdrObj
  * @return
  */
-Object *getCdr(Object *obj) {
-  auto cons{getCons(obj)};
+Object *getCdr(Object *cdrObj) {
+  auto cons{getCons(cdrObj)};
   return cons.cdr;
 }
 
 /**
  *
- * @param obj
+ * @param funcObj
  * @return
  */
-FunctionTag getBuiltinFuncTag(Object* obj) {
-  return std::get<Func>(obj->value).tag;
+FunctionTag getBuiltinFuncTag(Object* funcObj) {
+  return std::get<Func>(funcObj->value).tag;
 }
 
 /**
  *
- * @param obj
+ * @param funcObj
  * @return
  */
-Environment* getUserFunctionParentEnv(Object* obj) {
-  return std::get<UserFunc>(obj->value).env;
+int getBuiltinFuncNArgs(Object* funcObj) {
+  return std::get<Func>(funcObj->value).nArgs;
 }
 
 /**
  *
- * @param obj
+ * @param userFuncObj
  * @return
  */
-Object* getUserFunctionBodyList(Object* obj)
+Environment* getUserFunctionParentEnv(Object* userFuncObj) {
+  return std::get<UserFunc>(userFuncObj->value).env;
+}
+
+/**
+ *
+ * @param userFuncObj
+ * @return
+ */
+Object* getUserFunctionBodyList(Object* userFuncObj)
 {
-  return std::get<UserFunc>(obj->value).bodyList;
+  return std::get<UserFunc>(userFuncObj->value).bodyList;
 }
 
 /**
  *
- * @param obj
+ * @param userFuncObj
  * @return
  */
-Object* getUserFunctionArgList(Object* obj)
+Object* getUserFunctionArgList(Object* userFuncObj)
 {
-  return std::get<UserFunc>(obj->value).argList;
+  return std::get<UserFunc>(userFuncObj->value).argList;
 }
 
 /**

@@ -168,6 +168,9 @@ Continuation* equalNumber() {
   Object* b{popArg<Object*>()};
   Object* a{popArg<Object*>()};
 
+  if (!isNumber(a) || !isNumber(b)){
+    throw schemeException("incorrect type at '='", __FILE__, __LINE__);
+  }
   if (isFloat(a) && isFloat(b)) {
     lastReturnValue = (scm::getFloatValue(a) == scm::getFloatValue(b)) ? SCM_TRUE : SCM_FALSE;
     return popFunc();

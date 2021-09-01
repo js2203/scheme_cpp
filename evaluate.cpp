@@ -50,9 +50,7 @@ static Continuation* evaluateArgumentsSecond() {
   if (argumentCons != SCM_NIL) {
     Object* nextArg{getCar(argumentCons)};
     pushArgs({env, operation, argumentCons, ++nArgs});
-    return trampolineCall((Continuation*) (trampolineEvaluateFirst),
-                          (Continuation*) (evaluateArgumentsSecond),
-                          {env, nextArg});
+    return trampolineCall((Continuation*)(trampolineEvaluateFirst), (Continuation*)(evaluateArgumentsSecond), {env, nextArg});
   }
   else {
     pushArgs({env, operation, nArgs});
@@ -72,9 +70,7 @@ static Continuation* evaluateArgumentsFirst() {
   if (argumentCons != SCM_NIL) {
     pushArgs({env, operation, argumentCons, ++nArgs});
     Object* currentArgument{getCar(argumentCons)};
-    return trampolineCall((Continuation *) (trampolineEvaluateFirst),
-                          (Continuation *) (evaluateArgumentsSecond),
-                          {env, currentArgument});
+    return trampolineCall((Continuation*)(trampolineEvaluateFirst), (Continuation*)(evaluateArgumentsSecond), {env, currentArgument});
   }
   else {
     pushArgs({env, operation, nArgs});
@@ -89,6 +85,10 @@ static Continuation* evaluateArgumentsFirst() {
 static Continuation* evaluateBuiltinFunction() {
   auto [env, function] = popEnvObj();
   int nArgs{popArg<int>()};
+
+  if (nArgs != getBuiltinFuncNArgs(function) && getBuiltinFuncNArgs(function) != -1) {
+    throw schemeException("incorrect amount of arguments", __FILE__, __LINE__);
+  }
 
   pushArg(nArgs);
   return getBuiltinFunc(function);
