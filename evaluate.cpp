@@ -106,12 +106,19 @@ static Continuation* evaluateUserDefinedFunction() {
   Object* functionBody{getUserFunctionBodyList(function)};
   Environment* funcEnv{new Environment(getUserFunctionParentEnv(function))};
 
+  if (nArgs == 0 && functionArguments != SCM_NIL) {
+    throw schemeException("incorrect amount of arguments for function", __FILE__, __LINE__);
+  }
+
   if (nArgs > 0) {
     ObjectVec evaluatedArguments{popArgs<Object*>(nArgs)};
 
     for(;;) {
       if (functionArguments == SCM_NIL) {
         break;
+      }
+      else if (nArgs == 0) {
+        throw schemeException("incorrect amount of arguments for function", __FILE__, __LINE__);
       }
 
       Object* argName{getCar(functionArguments)};

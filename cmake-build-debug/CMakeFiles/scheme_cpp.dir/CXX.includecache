@@ -12,6 +12,14 @@ map
 scheme_basics.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
 
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.cpp
+iostream
+-
+evaluate.h
+C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
+tuple
+-
+
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/evaluate.h
 scheme_basics.h
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_basics.h
@@ -41,10 +49,6 @@ exception
 -
 sstream
 -
-
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.cpp
-scheme_builtInFunc.h
-C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
 
 C:/Users/janni/OneDrive/Desktop/scheme_cpp/scheme_builtInFunc.h
 evaluate.h

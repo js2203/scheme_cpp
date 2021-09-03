@@ -29,6 +29,9 @@ Continuation* popFunc();
  */
 template <typename T>
 T popArg() {
+  if (argumentStack.empty()) {
+    throw schemeException("stack is empty", __FILE__, __LINE__);
+  }
   T arg{std::get<T>(argumentStack.top())};
   argumentStack.pop();
   return arg;
@@ -42,6 +45,9 @@ T popArg() {
  */
 template <typename T>
 std::vector<T> popArgs(int n) {
+  if (argumentStack.size() < n) {
+    throw schemeException("stack has to few arguments", __FILE__, __LINE__);
+  }
   std::vector<T> values;
   for (int i{0}; i < n; i++) {
     values.push_back(popArg<T>());

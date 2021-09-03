@@ -37,7 +37,11 @@ bool isString(Object* obj) {
  * @return
  */
 bool isNumber(Object* obj) {
-  return (hasTag(obj, TAG_INT) || hasTag(obj, TAG_FLOAT));
+  try{
+    return (hasTag(obj, TAG_INT) || hasTag(obj, TAG_FLOAT));
+  } catch (std::exception& ex) {
+    throw schemeException("Error in is number", __FILE__, __LINE__);
+  }
 }
 
 /**

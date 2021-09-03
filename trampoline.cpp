@@ -30,8 +30,7 @@ Object* trampoline(Continuation* startFunction) {
  * @param arguments
  * @return
  */
-Continuation* trampolineCall(Continuation* nextFunc, Continuation* nextPart, std::vector<ArgumentTypeVariant> arguments)
-{
+Continuation* trampolineCall(Continuation* nextFunc, Continuation* nextPart, std::vector<ArgumentTypeVariant> arguments) {
   pushArgs(std::move(arguments));
   if (nextPart != nullptr) {
     pushFunc(nextPart);
@@ -52,8 +51,8 @@ void pushArg(ArgumentTypeVariant arg) {
  * @param arguments
  */
 void pushArgs(std::vector<ArgumentTypeVariant> arguments) {
-  for (auto i = arguments.rbegin(); i != arguments.rend(); i++) {
-    pushArg(*i);
+  for (auto argument = arguments.rbegin(); argument != arguments.rend(); argument++) {
+    pushArg(*argument);
   }
 }
 

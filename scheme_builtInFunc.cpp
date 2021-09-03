@@ -1,4 +1,5 @@
 #include "scheme_builtInFunc.h"
+#include <iostream>
 
 namespace scm::trampoline {
 
@@ -165,8 +166,8 @@ Continuation* equalString() {
  */
 Continuation* equalNumber() {
   popArg<int>();
-  Object* b{popArg<Object*>()};
   Object* a{popArg<Object*>()};
+  Object* b{popArg<Object*>()};
 
   if (!isNumber(a) || !isNumber(b)){
     throw schemeException("incorrect type at '='", __FILE__, __LINE__);
