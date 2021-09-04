@@ -13,7 +13,7 @@ void repl(std::istream* streamPointer, Environment& env) {
   for (;;) {
     try {
       Object* argument = readInput(streamPointer);
-      
+
       // if an argument can't be read, exit the loop
       if (argument == SCM_EOF) {
         return;
