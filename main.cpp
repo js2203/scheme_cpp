@@ -10,6 +10,10 @@ int main(int argc, char** argv) {
   scm::Environment baseEnv{};
   scm::initBaseEnvironment(baseEnv);
 
+  std::ifstream setupStream;
+  setupStream.open("..\\std.scm");
+  scm::repl(reinterpret_cast<std::istream*>(&setupStream), baseEnv);
+
   // define input stream from file
   std::ifstream inputStream;
   std::cout << "scheme started!\n";
