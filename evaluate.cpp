@@ -102,8 +102,8 @@ static Continuation* evaluateUserDefinedFunction() {
   auto [env, function] = popEnvObj();
   int nArgs{popArg<int>()};
 
-  Object* functionArguments{getUserFunctionArgList(function)};
-  Object* functionBody{getUserFunctionBodyList(function)};
+  Object* functionArguments{getUserFunctionArgs(function)};
+  Object* functionBody{getUserFunctionBody(function)};
   Environment* funcEnv{new Environment(getUserFunctionParentEnv(function))};
 
   if (nArgs == 0 && functionArguments != SCM_NIL) {

@@ -322,7 +322,7 @@ Continuation* returnFuncBody() {
   popArg<int>();
   Object* obj{popArg<Object*>()};
   if (hasTag(obj, TAG_FUNC_USER)) {
-    lastReturnValue = getUserFunctionBodyList(obj);
+    lastReturnValue = getUserFunctionBody(obj);
     return popFunc();
   }
   return nullptr;
@@ -336,7 +336,7 @@ Continuation* returnFuncArguments() {
   popArg<int>();
   Object* obj{popArg<Object*>()};
   if (hasTag(obj, TAG_FUNC_USER)) {
-    lastReturnValue = getUserFunctionArgList(obj);
+    lastReturnValue = getUserFunctionArgs(obj);
     return popFunc();
   }
   return nullptr;

@@ -4,65 +4,62 @@
 namespace scm {
 
 /**
- *
- * @param obj
- * @param tag
- * @return
+ * checks whether a scheme object has a certain tag
+ * @param obj the scheme object
+ * @param tag the tag to check for
+ * @return true if the object has the tag, else false
  */
 bool hasTag(Object* obj, ObjectTag tag) {
   return (getTag(obj) == tag);
 }
 
 /**
- *
- * @param obj
- * @return
+ * checks whether a scheme object has the float tag
+ * @param obj the scheme object
+ * @return true if the object has a float tag, else false
  */
 bool isFloat(Object* obj) {
   return hasTag(obj, TAG_FLOAT);
 }
 
 /**
- *
- * @param obj
- * @return
+ * checks whether a scheme object has the string tag
+ * @param obj the scheme object
+ * @return true if the object has a string tag, else false
  */
 bool isString(Object* obj) {
   return hasTag(obj, TAG_STRING);
 }
 
 /**
- *
- * @param obj
- * @return
+ * checks whether a scheme object has the integer or float tag
+ * @param obj the scheme object
+ * @return true if the object has a integer or float tag, else false
  */
 bool isNumber(Object* obj) {
-  try{
     return (hasTag(obj, TAG_INT) || hasTag(obj, TAG_FLOAT));
-  } catch (std::exception& ex) {
-    throw schemeException("Error in is number", __FILE__, __LINE__);
-  }
 }
 
 /**
- *
- * @param obj
- * @param validTypes
- * @return
+ * checks whether a scheme object has the a tag from a list of tags
+ * @param obj obj the scheme object
+ * @param validTags the allowed tags
+ * @return true if the object has a tag from the list, else false
  */
-bool isSameType(Object* obj, std::vector<ObjectTag> validTypes) {
-  auto lambda = [obj](ObjectTag tag) { return hasTag(obj, tag); };
-  return std::any_of(validTypes.begin(), validTypes.end(), lambda);
+bool isSameType(Object* obj, std::vector<ObjectTag> validTags) {
+  auto lambda = [obj](ObjectTag tag) {
+    return hasTag(obj, tag);
+  };
+  return std::any_of(validTags.begin(), validTags.end(), lambda);
 }
 
 /**
- *
- * @param cons
- * @param str
- * @return
+ * converts a scheme cons object to a string
+ * @param cons the scheme object
+ * @param str the string in which the values of the cons object are saved
+ * @return a string with the cons values
  */
-static std::string consToString(scm::Object* cons, std::string& str)
-{
+static std::string consToString(scm::Object* cons, std::string& str) {
   scm::Object *car, *cdr;
   car = getCar(cons);
   cdr = getCdr(cons);
@@ -79,9 +76,9 @@ static std::string consToString(scm::Object* cons, std::string& str)
 }
 
 /**
- *
- * @param obj
- * @return
+ * converts a scheme object into a printable string
+ * @param obj the scheme object
+ * @return a string with the value of the scheme object
  */
 std::string toString(Object* obj) {
   std::string consStart;
@@ -108,13 +105,13 @@ std::string toString(Object* obj) {
     case TAG_VOID:
       return "";
     default:
-      return "{{can't print: " + std::to_string(obj->tag) + "}}";
+      return "unable to print: " + std::to_string(obj->tag);
   }
 }
 /**
- *
- * @param tag
- * @return
+ * converts a scheme object tag into a printable string
+ * @param tag the scheme object tag
+ * @return a string with the tag of the scheme object
  */
 std::string tagToString(ObjectTag tag) {
   switch (tag) {

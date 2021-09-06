@@ -23,34 +23,34 @@ void pushFunc(Continuation* nextFunc);
 Continuation* popFunc();
 
 /**
- *
- * @tparam T
- * @return
+ * pops and returns the top argument on the argument stack
+ * @tparam Type the Type of argument to pop
+ * @return the argument
  */
-template <typename T>
-T popArg() {
+template <typename Type>
+Type popArg() {
   if (argumentStack.empty()) {
     throw schemeException("stack is empty", __FILE__, __LINE__);
   }
-  T arg{std::get<T>(argumentStack.top())};
+  Type arg{std::get<Type>(argumentStack.top())};
   argumentStack.pop();
   return arg;
 }
 
 /**
- *
- * @tparam T
- * @param n
- * @return
+ * pops and returns the top N amount of arguments on the argument stack
+ * @tparam Type the Type of argument to pop
+ * @param n the number of arguments to pop
+ * @return the arguments
  */
-template <typename T>
-std::vector<T> popArgs(int n) {
+template <typename Type>
+std::vector<Type> popArgs(int n) {
   if (argumentStack.size() < n) {
     throw schemeException("stack has to few arguments", __FILE__, __LINE__);
   }
-  std::vector<T> values;
+  std::vector<Type> values;
   for (int i{0}; i < n; i++) {
-    values.push_back(popArg<T>());
+    values.push_back(popArg<Type>());
   }
   return values;
 }

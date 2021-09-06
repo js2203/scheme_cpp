@@ -71,8 +71,8 @@ struct Func {
 };
 
 struct UserFunc {
-  Object* argList;
-  Object* bodyList;
+  Object* args;
+  Object* body;
   Environment* env;
 };
 
@@ -110,7 +110,7 @@ bool hasTag(Object* obj, ObjectTag tag);
 bool isFloat(Object* obj);
 bool isString(Object* obj);
 bool isNumber(Object* obj);
-bool isSameType(Object* obj, std::vector<ObjectTag> validTypes);
+bool isSameType(Object* obj, std::vector<ObjectTag> validTags);
 
 std::string tagToString(ObjectTag tag);
 std::string toString(scm::Object* obj);

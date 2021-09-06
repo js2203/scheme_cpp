@@ -5,54 +5,54 @@
 namespace scm {
 
 /**
- *
- * @param scmObj
- * @return
+ * returns the tag of a scheme object
+ * @param scmObj the scheme object
+ * @return Tag of the scheme Object
  */
 ObjectTag getTag(Object *scmObj) {
   return scmObj->tag;
 }
 
 /**
- *
- * @param stringObj
- * @return
+ * returns the value of a string scheme object
+ * @param stringObj the scheme object
+ * @return the string value
  */
 std::string getStringValue(Object *stringObj) {
   return std::get<std::string>(stringObj->value);
 }
 
 /**
- *
- * @param intObj
- * @return
+ * returns the value of a integer scheme object
+ * @param intObj the scheme object
+ * @return the integer value
  */
 int getIntValue(Object *intObj) {
   return std::get<int>(intObj->value);
 }
 
 /**
- *
- * @param floatObj
- * @return
+ * returns the value of a float scheme object
+ * @param floatObj the scheme object
+ * @return the float value
  */
 double getFloatValue(Object *floatObj) {
   return std::get<double>(floatObj->value);
 }
 
 /**
- *
- * @param consObj
- * @return
+ * returns the value of a cons scheme object
+ * @param consObj the scheme object
+ * @return the cons value
  */
 Cons getCons(Object *consObj) {
   return std::get<Cons>(consObj->value);
 }
 
 /**
- *
- * @param carObj
- * @return
+ * returns the value of a cons scheme object
+ * @param carObj the scheme object
+ * @return the car value
  */
 Object *getCar(Object *carObj) {
   auto cons{getCons(carObj)};
@@ -60,9 +60,9 @@ Object *getCar(Object *carObj) {
 }
 
 /**
- *
- * @param cdrObj
- * @return
+ * returns the value of a cons scheme object
+ * @param cdrObj the scheme object
+ * @return the cdr value
  */
 Object *getCdr(Object *cdrObj) {
   auto cons{getCons(cdrObj)};
@@ -70,56 +70,56 @@ Object *getCdr(Object *cdrObj) {
 }
 
 /**
- *
- * @param funcObj
- * @return
+ * returns the Tag of a function scheme object
+ * @param funcObj the scheme object
+ * @return the function tag
  */
 FunctionTag getBuiltinFuncTag(Object* funcObj) {
   return std::get<Func>(funcObj->value).tag;
 }
 
 /**
- *
- * @param funcObj
- * @return
+ * returns the amount of arguments a function takes
+ * @param funcObj the scheme object
+ * @return the amount of arguments
  */
 int getBuiltinFuncNArgs(Object* funcObj) {
   return std::get<Func>(funcObj->value).nArgs;
 }
 
 /**
- *
- * @param userFuncObj
- * @return
+ * returns the parent environment of an user defined function
+ * @param userFuncObj the scheme object
+ * @return the parent environment
  */
 Environment* getUserFunctionParentEnv(Object* userFuncObj) {
   return std::get<UserFunc>(userFuncObj->value).env;
 }
 
 /**
- *
- * @param userFuncObj
- * @return
+ * returns the body of an user defined function
+ * @param userFuncObj the scheme object
+ * @return the body of the function
  */
-Object* getUserFunctionBodyList(Object* userFuncObj)
+Object* getUserFunctionBody(Object* userFuncObj)
 {
-  return std::get<UserFunc>(userFuncObj->value).bodyList;
+  return std::get<UserFunc>(userFuncObj->value).body;
 }
 
 /**
- *
- * @param userFuncObj
- * @return
+ * returns the arguments of an user defined function
+ * @param userFuncObj the scheme object
+ * @return the arguments an user defined function takes
  */
-Object* getUserFunctionArgList(Object* userFuncObj)
+Object* getUserFunctionArgs(Object* userFuncObj)
 {
-  return std::get<UserFunc>(userFuncObj->value).argList;
+  return std::get<UserFunc>(userFuncObj->value).args;
 }
 
 /**
- *
- * @param function
- * @return
+ * returns the corresponding function for a builtin function
+ * @param function the scheme object
+ * @return the corresponding function for a function tag
  */
 Continuation* getBuiltinFunc(Object* function) {
   switch (getBuiltinFuncTag(function)) {
@@ -173,9 +173,9 @@ Continuation* getBuiltinFunc(Object* function) {
 }
 
 /**
- *
- * @param syntax
- * @return
+ * returns the corresponding syntax for a builtin function
+ * @param syntax the scheme object
+ * @return the corresponding syntax for a function tag
  */
 Continuation* getBuiltinSyntax(Object* syntax) {
   switch (getBuiltinFuncTag(syntax)) {

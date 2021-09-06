@@ -17,8 +17,8 @@ Object* getCdr(Object* obj);
 
 Continuation* getBuiltinFunc(Object* function);
 Continuation* getBuiltinSyntax(Object* Syntax);
-Object* getUserFunctionBodyList(Object* obj);
-Object* getUserFunctionArgList(Object* obj);
+Object* getUserFunctionBody(Object* obj);
+Object* getUserFunctionArgs(Object* obj);
 int getBuiltinFuncNArgs(Object* obj);
 Environment* getUserFunctionParentEnv(Object* obj);
 

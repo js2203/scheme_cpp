@@ -10,6 +10,7 @@ int main(int argc, char** argv) {
   scm::Environment baseEnv{};
   scm::initBaseEnvironment(baseEnv);
 
+  // read functions from a setup .scm file
   std::ifstream setupStream;
   setupStream.open("..\\std.scm");
   scm::repl(reinterpret_cast<std::istream*>(&setupStream), baseEnv);
@@ -36,7 +37,5 @@ int main(int argc, char** argv) {
       std::cout << "Too many arguments!";
       return 1;
   }
-
-
   return 0;
 }
