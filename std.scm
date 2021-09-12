@@ -1,4 +1,4 @@
-(display "hier init.scm\n")
+;(display "hier init.scm\n")
 
 ; get the void object (this is the ret-value of display)
 (define #void (display))
@@ -169,4 +169,4 @@
 
 ;(load "compiler.scm")
 
-(display "end of init.scm\n")
+;(display "end of init.scm\n")

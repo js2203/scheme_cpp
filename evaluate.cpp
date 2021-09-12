@@ -5,8 +5,8 @@
 namespace scm::trampoline {
 
 /**
- *
- * @return
+ * pops the first environment and the first object on the current stack
+ * @return a tuple with an environment and a scheme object
  */
 std::tuple<Environment*, Object*> popEnvObj() {
   Environment* env{popArg<Environment*>()};
@@ -14,8 +14,8 @@ std::tuple<Environment*, Object*> popEnvObj() {
   return  {env, obj};
 }
 /**
- *
- * @return
+ * pops the first environment and the first two objects on the current stack
+ * @return a tuple with an environment and two scheme object
  */
 std::tuple<Environment*, Object*, Object*> popEnvObjObj() {
   Environment* env{popArg<Environment*>()};
