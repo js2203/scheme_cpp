@@ -25,19 +25,19 @@ std::tuple<Environment*, Object*, Object*> popEnvObjObj() {
 }
 
 /**
- *
- * @param env
- * @param expression
+ * starting function for the trampoline
+ * @param env the top level environment
+ * @param code the code to be evaluated
  * @return
  */
-Object* evaluateInput(Environment& env, Object* expression) {
-  pushArgs({&env, expression});
+Object* evaluateInput(Environment& env, Object* code) {
+  pushArgs({&env, code});
   return trampoline((Continuation*)(trampolineEvaluateFirst));
 }
 
 /**
- *
- * @return
+ * retrieves arguments from the stack and evaluates them until all arguments are evaluated
+ * @return the next function for the trampoline
  */
 static Continuation* evaluateArgumentsSecond() {
   auto [env, operation, argumentCons] = popEnvObjObj();
@@ -59,8 +59,8 @@ static Continuation* evaluateArgumentsSecond() {
 }
 
 /**
- *
- * @return
+ * retrieves parameters from the stack and evaluates a con object passed to a function
+ * @return the next function for the trampoline
  */
 static Continuation* evaluateArgumentsFirst() {
   auto [env, operation, argumentCons] = popEnvObjObj();
@@ -79,8 +79,8 @@ static Continuation* evaluateArgumentsFirst() {
 }
 
 /**
- *
- * @return
+ * retrieves arguments from the stack and evaluates a built in function
+ * @return the next function for the trampoline
  */
 static Continuation* evaluateBuiltinFunction() {
   auto [env, function] = popEnvObj();
@@ -95,8 +95,8 @@ static Continuation* evaluateBuiltinFunction() {
 }
 
 /**
- *
- * @return
+ * retrieves arguments from the stack and evaluates a user defined function
+ * @return the next function for the trampoline
  */
 static Continuation* evaluateUserDefinedFunction() {
   auto [env, function] = popEnvObj();
@@ -129,16 +129,16 @@ static Continuation* evaluateUserDefinedFunction() {
   }
 
   if (hasTag(getCar(functionBody), TAG_CONS)) {
-    return trampolineCall((Continuation *)(syntaxBegin), nullptr, {funcEnv, functionBody});
+    return trampolineCall((Continuation*)(syntaxBegin), nullptr, {funcEnv, functionBody});
   }
   else {
-    return trampolineCall((Continuation *)(trampolineEvaluateFirst), nullptr, {funcEnv, functionBody});
+    return trampolineCall((Continuation*)(trampolineEvaluateFirst), nullptr, {funcEnv, functionBody});
   }
 }
 
 /**
- *
- * @return
+ * retrieves arguments from the stack and evaluates a syntax
+ * @return the next function for the trampoline
  */
 static Continuation* evaluateSyntax() {
   auto [env, syntax, arguments] = popEnvObjObj();
@@ -148,8 +148,8 @@ static Continuation* evaluateSyntax() {
 }
 
 /**
- *
- * @return
+ * retrieves arguments from the stack and starts the evaluation of a function or syntax
+ * @return the next function for the trampoline
  */
 static Continuation* trampolineEvaluateSecond() {
   auto [env, obj] = popEnvObj();
@@ -171,8 +171,8 @@ static Continuation* trampolineEvaluateSecond() {
 }
 
 /**
- *
- * @return
+ * retrieves arguments from the stack and evaluates an object
+ * @return the next function for the trampoline
  */
 Continuation* trampolineEvaluateFirst() {
   auto [env, obj] = popEnvObj();
@@ -206,7 +206,7 @@ Continuation* trampolineEvaluateFirst() {
       return trampolineCall((Continuation*)(trampolineEvaluateFirst), (Continuation*)(trampolineEvaluateSecond), {env, operation});
     }
     default:
-      std::cout << ("evaluation not yet implemented for " + scm::toString(obj));
+      throw schemeException("evaluation not yet implemented", __FILE__, __LINE__);
   }
   return nullptr;
 }

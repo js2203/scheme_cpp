@@ -6,7 +6,7 @@
 
 namespace scm::trampoline {
 
-Object* evaluateInput(Environment& env, Object* obj);
+Object* evaluateInput(Environment& env, Object* code);
 
 Continuation* trampolineEvaluateFirst();
 
