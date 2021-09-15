@@ -20,53 +20,51 @@ void initConstSchemeObjects() {
 }
 
 /**
- *
- * @param argList
- * @param bodyList
- * @param homeEnv
- * @return
+ * built a new user defined function object
+ * @param arguments an object with all arguments
+ * @param body an object with expressions to be evaluated
+ * @param env the environment of the function
+ * @return a pointer to the function object
  */
-Object* newUserFunction(Object* argList, Object* bodyList, Environment& homeEnv) {
-  Object* obj{new Object};
-  obj->tag = TAG_FUNC_USER;
-  obj->value = UserFunc{argList, bodyList, &homeEnv};
-  return obj;
+Object* newUserFunction(Object* arguments, Object* body, Environment& env) {
+  Object* userDefFuncObj{new Object};
+  userDefFuncObj->tag = TAG_FUNC_USER;
+  userDefFuncObj->value = UserFunc{arguments, body, &env};
+  return userDefFuncObj;
 }
 
 /**
- *
- * @param name
- * @param numArgs
- * @param funcTag
- * @return
+ * built a new built in function object
+ * @param arguments an object with all arguments
+ * @param body an object with expressions to be evaluated
+ * @param env the environment of the function
+ * @return a pointer to the function object
  */
-Object* newBuiltinFunction(std::string name, int numArgs, FunctionTag funcTag)
-{
-  Object* obj{new Object};
-  obj->tag = TAG_FUNC_BUILTIN;
-  obj->value = Func{"primitive:" + name, numArgs, funcTag};
-  return obj;
+Object* newBuiltinFunction(const std::string& name, int numArgs, FunctionTag tag) {
+  Object* builtInFuncObj{new Object};
+  builtInFuncObj->tag = TAG_FUNC_BUILTIN;
+  builtInFuncObj->value = Func{"primitive:" + name, numArgs, tag};
+  return builtInFuncObj;
 };
 
 /**
- *
- * @param name
- * @param numArgs
- * @param funcTag
- * @return
+ * built a syntax object
+ * @param name the name of the syntax
+ * @param numArgs the number of arguments required
+ * @param tag the tag of the syntax
+ * @return a pointer to the syntax object
  */
-Object* newSyntax(std::string name, int numArgs, FunctionTag funcTag)
-{
-  Object* obj{new Object()};
-  obj->tag = TAG_SYNTAX;
-  obj->value = Func{"syntax:" + name, numArgs, funcTag};
-  return obj;
+Object* newSyntax(const std::string& name, int numArgs, FunctionTag tag) {
+  Object* synObj{new Object()};
+  synObj->tag = TAG_SYNTAX;
+  synObj->value = Func{"syntax:" + name, numArgs, tag};
+  return synObj;
 }
 
 /**
- *
- * @param value
- * @return
+ * built a new integer object
+ * @param value the value of the integer
+ * @return a pointer to the integer object
  */
 Object* newInteger(int value) {
   Object* newInt{new Object};
@@ -76,9 +74,9 @@ Object* newInteger(int value) {
 }
 
 /**
- *
- * @param value
- * @return
+ * built a new float object
+ * @param value the value of the float
+ * @return a pointer to the float object
  */
 Object* newFloat(double value) {
   Object* newFloat{new Object};
@@ -88,9 +86,9 @@ Object* newFloat(double value) {
 }
 
 /**
- *
- * @param value
- * @return
+ * built a new string object
+ * @param value the value of the string
+ * @return a pointer to the string object
  */
 Object* newString(std::string value) {
   Object* newString{new Object};
@@ -100,9 +98,9 @@ Object* newString(std::string value) {
 }
 
 /**
- *
- * @param value
- * @return
+ * built a new symbol object
+ * @param value the value of the symbol
+ * @return a pointer to the symbol object
  */
 Object* newSymbol(std::string value) {
   Object* newSymbol{new Object};
@@ -112,10 +110,10 @@ Object* newSymbol(std::string value) {
 }
 
 /**
- *
- * @param car
- * @param cdr
- * @return
+ * built a new cons object
+ * @param car the first element of the cons
+ * @param cdr the last element of the cons
+ * @return a pointer to the cons object
  */
 Object* newCons(Object* car, Object* cdr) {
   Object* newCons{new Object};

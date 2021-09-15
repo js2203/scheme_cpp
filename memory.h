@@ -10,9 +10,9 @@ Object* newFloat(double value);
 Object* newString(std::string value);
 Object* newSymbol(std::string value);
 Object* newCons(Object* car, Object* cdr);
-Object* newUserFunction(Object* argList, Object* bodyList, Environment& homeEnv);
-Object* newBuiltinFunction(std::string name, int numArgs, FunctionTag funcTag);
-Object* newSyntax(std::string name, int numArgs, FunctionTag funcTag);
+Object* newUserFunction(Object* arguments, Object* body, Environment& env);
+Object* newBuiltinFunction(const std::string& name, int numArgs, FunctionTag tag);
+Object* newSyntax(const std::string& name, int numArgs, FunctionTag tag);
 
 extern Object* SCM_NIL;
 extern Object* SCM_VOID;

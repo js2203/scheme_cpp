@@ -4,29 +4,33 @@
 namespace scm {
 
 /**
- *
- * @param env
- * @param name
- * @param nArgs
- * @param tag
+ * Defines a new syntax in the given environment
+ * @param env the environment in which the syntax is defined
+ * @param name the name of the syntax
+ * @param nArgs the number of arguments required
+ * @param tag the tag for the function
  */
-void defineNewSyntax(Environment& env, const std::string& name, int nArgs, FunctionTag tag){
+void defineNewSyntax(Environment& env, const std::string& name, int nArgs, FunctionTag tag) {
   Object* func{newSyntax(name, nArgs, tag)};
   scm::defineKeyString(env, name, func);
 }
 
 /**
- *
- * @param env
- * @param name
- * @param nArgs
- * @param tag
+ * Defines a new function in the given environment
+ * @param env the environment in which the function is defined
+ * @param name the name of the function
+ * @param nArgs the number of arguments required
+ * @param tag the tag for the function
  */
-void defineNewBuiltinFunction(Environment& env, const std::string& name, int nArgs, FunctionTag tag){
+void defineNewBuiltinFunction(Environment& env, const std::string& name, int nArgs, FunctionTag tag) {
   Object* func{newBuiltinFunction(name, nArgs, tag)};
   scm::defineKeyString(env, name, func);
 }
 
+/**
+ * Setup an environment with all builtin functions and syntax.
+ * @param env the environment in which the syntax and functions are defined
+ */
 void initBaseEnvironment(Environment& env) {
 
   defineNewSyntax(env, "quote", -1, SYNTAX_QUOTE);
